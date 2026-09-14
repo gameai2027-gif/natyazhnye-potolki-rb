@@ -14,7 +14,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Patch index.html
+      - name: Restore index without black-text override
         run: |
           set -e
           git show f035a80834e9af4e27b9fcb400baf5d243949a95:index.html > index.html
@@ -41,15 +41,8 @@ jobs:
               raise SystemExit('mobile block missing')
           text = text.replace(old_mobile, new_mobile, 1)
 
-          # Black text in light theme
-          text = text.replace('  --text:#222;\n  --muted:#666;', '  --text:#111;\n  --muted:#1a1a1a;', 1)
-
-          inject = '''\n/* Light theme: black font about-faq */\nhtml:not([data-theme="dark"]) body,\nbody:not([data-theme="dark"]) { color:#111; }\nbody:not([data-theme="dark"]) .sub,\nbody:not([data-theme="dark"]) .about-card p,\nbody:not([data-theme="dark"]) .about-why,\nbody:not([data-theme="dark"]) .service-body p,\nbody:not([data-theme="dark"]) .benefit p,\nbody:not([data-theme="dark"]) .step p,\nbody:not([data-theme="dark"]) .review-text,\nbody:not([data-theme="dark"]) .pricing-note,\nbody:not([data-theme="dark"]) .pricing-row,\nbody:not([data-theme="dark"]) .faq-q,\nbody:not([data-theme="dark"]) .faq-a p,\nbody:not([data-theme="dark"]) .contact-item span,\nbody:not([data-theme="dark"]) .contact-item b { color:#111 !important; }\nbody:not([data-theme="dark"]) h2,\nbody:not([data-theme="dark"]) h3,\nbody:not([data-theme="dark"]) .about-card h3,\nbody:not([data-theme="dark"]) .benefit h3,\nbody:not([data-theme="dark"]) .service-body h3,\nbody:not([data-theme="dark"]) .step h3,\nbody:not([data-theme="dark"]) .about-why h3,\nbody:not([data-theme="dark"]) .pricing-row b { color:#0a0a0a !important; }\n'''
-          if 'Light theme: black font about-faq' not in text:
-              text = text.replace('</style>', inject + '</style>', 1)
-
           Path('index.html').write_text(text, encoding='utf-8')
-          print('patched ok', len(text))
+          print('reverted black text, kept mobile+reveal fixes', len(text))
           PY
 
       - name: Commit and push
@@ -58,5 +51,5 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html
           git diff --cached --quiet && echo 'No changes' && exit 0
-          git commit -m "fix: black text in light theme for about-faq blocks"
+          git commit -m "revert: remove black text override, keep mobile and reveal fixes"
           git push
