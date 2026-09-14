@@ -1,0 +1,110 @@
+name: Fix light theme text color
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/fix-light-text.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Make content text black in light theme
+        run: |
+          set -e
+          python3 << 'PY'
+          from pathlib import Path
+          text = Path('index.html').read_text(encoding='utf-8')
+
+          # 1) Darker muted color in light theme
+          old = '  --text:#222;\n  --muted:#666;'
+          new = '  --text:#111;\n  --muted:#222;'
+          if old not in text:
+              raise SystemExit('vars not found')
+          text = text.replace(old, new, 1)
+
+          # 2) Explicit black text for content sections in light mode (not dark theme)
+          inject = '''
+/* ===== Light theme: чёрный шрифт в блоках О компании — Вопросы ===== */
+body:not([data-theme="dark"]) #about,
+body:not([data-theme="dark"]) #about .sub,
+body:not([data-theme="dark"]) #about p,
+body:not([data-theme="dark"]) #about h2,
+body:not([data-theme="dark"]) #about h3,
+body:not([data-theme="dark"]) #uslugi,
+body:not([data-theme="dark"]) #uslugi .sub,
+body:not([data-theme="dark"]) #uslugi p,
+body:not([data-theme="dark"]) #uslugi h2,
+body:not([data-theme="dark"]) #uslugi h3,
+body:not([data-theme="dark"]) #benefits,
+body:not([data-theme="dark"]) #benefits .sub,
+body:not([data-theme="dark"]) #benefits p,
+body:not([data-theme="dark"]) #benefits h2,
+body:not([data-theme="dark"]) #benefits h3,
+body:not([data-theme="dark"]) #portfolio,
+body:not([data-theme="dark"]) #portfolio .sub,
+body:not([data-theme="dark"]) #portfolio p,
+body:not([data-theme="dark"]) #portfolio h2,
+body:not([data-theme="dark"]) #prices,
+body:not([data-theme="dark"]) #prices .sub,
+body:not([data-theme="dark"]) #prices p,
+body:not([data-theme="dark"]) #prices h2,
+body:not([data-theme="dark"]) #prices b,
+body:not([data-theme="dark"]) #steps,
+body:not([data-theme="dark"]) #steps .sub,
+body:not([data-theme="dark"]) #steps p,
+body:not([data-theme="dark"]) #steps h2,
+body:not([data-theme="dark"]) #steps h3,
+body:not([data-theme="dark"]) #reviews,
+body:not([data-theme="dark"]) #reviews .sub,
+body:not([data-theme="dark"]) #reviews p,
+body:not([data-theme="dark"]) #reviews h2,
+body:not([data-theme="dark"]) #reviews b,
+body:not([data-theme="dark"]) #voprosi,
+body:not([data-theme="dark"]) #voprosi .sub,
+body:not([data-theme="dark"]) #voprosi p,
+body:not([data-theme="dark"]) #voprosi h2,
+body:not([data-theme="dark"]) #voprosi .faq-q,
+body:not([data-theme="dark"]) #voprosi .faq-a,
+body:not([data-theme="dark"]) .about-card p,
+body:not([data-theme="dark"]) .about-why,
+body:not([data-theme="dark"]) .service-body p,
+body:not([data-theme="dark"]) .benefit p,
+body:not([data-theme="dark"]) .step p,
+body:not([data-theme="dark"]) .review-text,
+body:not([data-theme="dark"]) .pricing-note,
+body:not([data-theme="dark"]) .pricing-row,
+body:not([data-theme="dark"]) .sub {
+  color: #111 !important;
+}
+body:not([data-theme="dark"]) h2 {
+  color: #0a0a0a !important;
+}
+'''
+
+          marker = '</style>'
+          if 'Light theme: чёрный шрифт' in text:
+              print('already injected')
+          else:
+              if marker not in text:
+                  raise SystemExit('style end not found')
+              text = text.replace(marker, inject + marker, 1)
+
+          Path('index.html').write_text(text, encoding='utf-8')
+          print('ok', len(text))
+          PY
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet && echo 'No changes' && exit 0
+          git commit -m "fix: black text in light theme for about–faq blocks"
+          git push
