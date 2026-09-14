@@ -1,0 +1,149 @@
+# ============================================================================
+# .htaccess — SkyLine production config для Apache 2.4+
+# Разместить в корне сайта: /var/www/skyline/public/.htaccess
+# Требует: mod_rewrite, mod_headers, mod_deflate, mod_expires, mod_mime, mod_filter
+# ============================================================================
+
+# --- Кодировка по умолчанию ---
+AddDefaultCharset UTF-8
+
+# --- Базовая защита ---
+Options -Indexes -ExecCGI -Includes
+ServerSignature Off
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # HTTPS редирект с HTTP
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # www -> non-www
+    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+    # Запрет доступа к скрытым файлам (.git, .env, .htaccess, и т.д.)
+    RewriteRule (^|/)\.(?!well-known) - [F]
+
+    # Запрет доступа к .log файлам
+    RewriteRule \.log$ - [F]
+
+    # Главная страница -> index.html
+    DirectoryIndex index.html skyline-2026.html
+</IfModule>
+
+# --- Security Headers ---
+<IfModule mod_headers.c>
+    Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+    Header always set X-Frame-Options "DENY"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(self https://yandex.ru), camera=(), microphone=(), display-capture=(), fullscreen=(self), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()"
+    Header always set Cross-Origin-Opener-Policy "same-origin"
+    Header always set Cross-Origin-Resource-Policy "same-origin"
+    Header always set X-Permitted-Cross-Domain-Policies "none"
+
+    # Content-Security-Policy (мягкий вариант для статичного лендинга)
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://api.telegram.org; frame-src https://yandex.ru; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; manifest-src 'self'; upgrade-insecure-requests"
+
+    # Убираем заголовки, раскрывающие стек
+    Header always unset X-Powered-By
+    Header always unset Server
+</IfModule>
+
+# --- Gzip сжатие ---
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE text/javascript
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE application/ld+json
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddOutputFilterByType DEFLATE font/woff2
+    AddOutputFilterByType DEFLATE application/font-woff2
+</IfModule>
+
+# --- Кэширование статичных файлов ---
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault                          "access plus 1 month"
+    ExpiresByType text/css                  "access plus 1 year"
+    ExpiresByType text/javascript           "access plus 1 year"
+    ExpiresByType application/javascript    "access plus 1 year"
+    ExpiresByType image/jpeg                "access plus 1 year"
+    ExpiresByType image/png                 "access plus 1 year"
+    ExpiresByType image/gif                 "access plus 1 year"
+    ExpiresByType image/webp                "access plus 1 year"
+    ExpiresByType image/avif                "access plus 1 year"
+    ExpiresByType image/svg+xml             "access plus 1 year"
+    ExpiresByType image/x-icon              "access plus 1 year"
+    ExpiresByType font/woff2                "access plus 1 year"
+    ExpiresByType application/font-woff2    "access plus 1 year"
+    ExpiresByType text/html                 "access plus 0 seconds"
+    ExpiresByType application/json          "access plus 0 seconds"
+    ExpiresByType application/ld+json       "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|woff2|ttf|otf|eot|jpg|jpeg|png|gif|webp|avif|svg|ico)$">
+        Header set Cache-Control "public, immutable"
+    </FilesMatch>
+    <FilesMatch "\.(html|json|ld\+json)$">
+        Header set Cache-Control "no-cache, must-revalidate"
+    </FilesMatch>
+</IfModule>
+
+# --- MIME-типы ---
+<IfModule mod_mime.c>
+    AddType image/svg+xml             .svg
+    AddType application/manifest+json .webmanifest
+    AddType application/json          .json
+    AddType text/plain                .txt
+    AddType application/xml           .xml
+</IfModule>
+
+# --- PHP только в /api/ ---
+<FilesMatch "\.php$">
+    # По умолчанию запрещаем; в /api/ переопределяем ниже
+    Require all denied
+</FilesMatch>
+<IfModule mod_rewrite.c>
+    # Разрешаем PHP только внутри /api/
+    RewriteCond %{REQUEST_URI} ^/api/
+    RewriteRule \.php$ - [L]
+</IfModule>
+<Directory "/var/www/skyline/public/api">
+    php_flag engine on
+    <FilesMatch "\.php$">
+        Require all granted
+    </FilesMatch>
+</Directory>
+
+# --- Блокировка опасных путей ---
+<FilesMatch "(^\.|wp-login\.php|xmlrpc\.php|phpinfo\.php|\.env|\.git|\.svn|\.htaccess|\.htpasswd)">
+    Require all denied
+</FilesMatch>
+
+# --- Кастомные страницы ошибок ---
+ErrorDocument 400 /err.html
+ErrorDocument 401 /err.html
+ErrorDocument 403 /err.html
+ErrorDocument 404 /err.html
+ErrorDocument 405 /err.html
+ErrorDocument 429 /429.html
+ErrorDocument 500 /500.html
+ErrorDocument 502 /500.html
+ErrorDocument 503 /500.html
+ErrorDocument 504 /500.html
+
+# --- Ограничение методов запроса ---
+<LimitExcept GET HEAD POST>
+    Require all denied
+</LimitExcept>
+
+# --- Защита от clickjacking для всего сайта (дополнительно к CSP) ---
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "DENY"
+</IfModule>

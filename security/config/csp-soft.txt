@@ -1,0 +1,35 @@
+================================================================
+CSP — МЯГКИЙ ВАРИАНТ (DEV / staging, проверка совместимости)
+================================================================
+
+# Используется для отладки перед переключением на strict.
+# 'unsafe-inline' оставлен для script-src и style-src —
+# удобно пока выносите инлайн-скрипты в external .js файлы.
+# Report-Only режим: заголовок Content-Security-Policy-Report-Only
+# (не блокирует, только репортит нарушения в /csp-report).
+
+default-src 'self';
+script-src 'self' 'unsafe-inline';
+style-src 'self' 'unsafe-inline';
+img-src 'self' data: https:;
+font-src 'self';
+connect-src 'self' https://api.telegram.org;
+frame-src https://yandex.ru;
+object-src 'none';
+base-uri 'self';
+form-action 'self' https://skyline-bashkortostan.ru;
+frame-ancestors 'none';
+upgrade-insecure-requests;
+report-uri /csp-report;
+report-to csp-endpoint;
+
+----------------------------------------------------------------
+ЭТАПЫ МИГРАЦИИ DEV → PROD:
+1. Подключить Report-Only с этим CSP, собрать отчёты 2-3 дня.
+2. Вынести JSON-LD и весь JS в external файлы (.js, .jsonld).
+3. Включить nonce в nginx/Apache для inline скриптов (минимум —
+   JSON-LD блоки).
+4. Переключиться на строгий CSP без 'unsafe-inline'.
+5. Включить require-trusted-types-for 'script' после аудита всех
+   .innerHTML / .outerHTML / eval / new Function() — переписать.
+----------------------------------------------------------------

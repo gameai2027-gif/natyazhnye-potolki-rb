@@ -1,0 +1,32 @@
+# ============================================================================
+# security.txt — RFC 9116
+# Разместить: https://skyline-bashkortostan.ru/.well-known/security.txt
+# Fallback:   https://skyline-bashkortostan.ru/security.txt
+# ============================================================================
+
+# Контакты для bug reports / responsible disclosure.
+# Срок ответа — 5 рабочих дней.
+
+Contact: mailto:security@skyline-bashkortostan.ru
+Contact: https://t.me/skyline_security
+Contact: tel:+7347XXXXXXX
+
+# PGP-ключ для шифрования отчётов (опубликовать на сайте)
+Encryption: https://skyline-bashkortostan.ru/.well-known/pgp-key.asc
+
+# Предпочитаемый язык общения
+Preferred-Languages: ru, en
+
+# Канонический URL этого файла
+Canonical: https://skyline-bashkortostan.ru/.well-known/security.txt
+
+# Политика responsible disclosure (ссылка)
+Policy: https://skyline-bashkortostan.ru/security-policy.html
+
+# За какое время до публикации уведомлять (90 дней)
+Expires: 2027-01-01T00:00:00.000Z
+
+# Доп. поля (не из RFC, но принято):
+# Acknowledgments: https://skyline-bashkortostan.ru/thanks.html
+# Hiring: https://hh.ru/employer/XXXXXXX
+# Hiding: none

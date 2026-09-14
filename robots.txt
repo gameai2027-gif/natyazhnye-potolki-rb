@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Disallow: /security/
+Disallow: /api/
+Disallow: /*.php$
+Disallow: /*.log$
+Disallow: /admin/
+
+User-agent: Yandex
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot
+Allow: /
+
+Sitemap: https://skyline-bashkortostan.ru/sitemap.xml
+Host: https://skyline-bashkortostan.ru

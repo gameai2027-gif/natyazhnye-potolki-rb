@@ -1,0 +1,45 @@
+================================================================
+CSP — СТРОГИЙ ВАРИАНТ (PROD) — nonce-based, без 'unsafe-inline'
+================================================================
+
+# nginx / Apache: подставлять $nonce или %{CSP_NONCE}e на каждый запрос.
+# nonce = base64(rand(16-32 bytes)), регенерируется на каждый запрос.
+# В HTML каждый inline <script> получает nonce="..." и атрибут
+# <script nonce="$nonce">...</script>. JSON-LD блоки <script type="application/ld+json">
+# также требуют nonce в strict режимах с require-trusted-types-for.
+
+default-src 'self';
+script-src 'self' 'nonce-{NONCE}' 'strict-dynamic';
+style-src 'self' 'nonce-{NONCE}';
+img-src 'self' data: https:;
+font-src 'self';
+connect-src 'self' https://api.telegram.org;
+frame-src https://yandex.ru;
+object-src 'none';
+base-uri 'self';
+form-action 'self';
+frame-ancestors 'none';
+manifest-src 'self';
+worker-src 'self';
+child-src 'self';
+media-src 'self';
+upgrade-insecure-requests;
+require-trusted-types-for 'script';
+trusted-types default;
+
+----------------------------------------------------------------
+ПРИМЕЧАНИЯ:
+- 'strict-dynamic' разрешает скриптам, уже загруженным с nonce,
+  добавлять дочерние скрипты без явного разрешения (для динамики).
+- require-trusted-types-for 'script' блокирует небезопасные sinks
+  (innerHTML, eval). Если в inline-JS есть .innerHTML = ... —
+  либо переписать на textContent, либо отключить эту директиву
+  (см. мягкий вариант).
+- frame-ancestors 'none' полностью запрещает встраивание (аналог
+  X-Frame-Options: DENY, но CSP приоритетнее).
+- form-action 'self' — форма может отправляться только на свой origin.
+  Если бэкенд на отдельном домене — заменить на form-action 'self'
+  https://backend.skyline-bashkortostan.ru;
+- trusted-types default — подключает политику по умолчанию.
+  В проде лучше создать свою политику (см. CSP-TT-POLICY.md).
+----------------------------------------------------------------

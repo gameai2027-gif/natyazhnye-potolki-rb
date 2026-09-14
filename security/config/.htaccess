@@ -1,0 +1,182 @@
+# ============================================================================
+# Apache .htaccess — SkyLine 2026 production
+# Разместить: /var/www/skyline/public/.htaccess
+# Требуется: AllowOverride All, mod_headers, mod_rewrite, mod_ssl, mod_deflate,
+#            mod_filter, mod_ext_filter, mod_setenvif
+# ============================================================================
+
+# --- Базовая кодировка ---
+AddDefaultCharset UTF-8
+Options -Indexes -ExecCGI -Includes +FollowSymLinks
+ServerSignature Off
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # --- HTTPS принудительно ---
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+    # --- www → non-www ---
+    RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+    RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+    # --- Запрет скрытых файлов (.git, .env, .htaccess) ---
+    RewriteRule (^|/)\.(?!well-known) - [F,L]
+
+    # --- Запрет прямого доступа к .php вне /api/ ---
+    RewriteCond %{REQUEST_URI} !^/api/
+    RewriteRule \.php$ - [F,L]
+
+    # --- Редирект /api/lead → /api/lead.php ---
+    RewriteRule ^api/lead$ /api/lead.php [L]
+
+    # --- Запрет методов кроме GET/HEAD/POST ---
+    RewriteCond %{REQUEST_METHOD} !^(GET|HEAD|POST)$
+    RewriteRule ^ - [R=405,L]
+</IfModule>
+
+# ============================================================================
+# SECURITY HEADERS
+# ============================================================================
+<IfModule mod_headers.c>
+
+    # HSTS с preload (включать preload только после одобрения hstspreload.org)
+    Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+
+    # MIME-sniffing защита
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Clickjacking — полный запрет встраивания (CSP frame-ancestors дублируется)
+    Header always set X-Frame-Options "DENY"
+
+    # Referrer
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Permissions-Policy — закрыть всё, кроме геолокации для Я.Карты
+    Header always set Permissions-Policy "geolocation=(self https://yandex.ru), camera=(), microphone=(), display-capture=(), fullscreen=(self), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()"
+
+    # Изоляция процессов
+    Header always set Cross-Origin-Opener-Policy "same-origin"
+    Header always set Cross-Origin-Embedder-Policy "require-corp"
+    Header always set Cross-Origin-Resource-Policy "same-origin"
+
+    # Доп. защита от Adobe Flash / PDF embed
+    Header always set X-Permitted-Cross-Domain-Policies "none"
+
+    # Отключить DNS prefetching (анти-leak)
+    Header always set X-DNS-Prefetch-Control "off"
+
+    # --- CSP strict (nonce-based через PHP-генерацию) ---
+    # nonce подставляется из PHP: header('Content-Security-Policy: ... nonce='.$nonce.' ...')
+    # Здесь — fallback, если PHP не задал (мягкий вариант):
+    # Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://api.telegram.org; frame-src https://yandex.ru; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+
+    # Reporting API
+    Header always set Report-To '{"group":"csp-endpoint","max_age":10886400,"endpoints":[{"url":"https://skyline-bashkortostan.ru/csp-report"}]}'
+
+    # Убрать серверную подпись
+    Header always unset X-Powered-By
+    Header always unset Server
+
+    # Cache-control для HTML — short, чтобы nonce обновлялся
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "no-cache, must-revalidate"
+    </FilesMatch>
+
+    # Длинный кэш + immutable для статики
+    <FilesMatch "\.(css|js|woff2?|ttf|otf|eot|jpg|jpeg|png|gif|webp|avif|svg|ico)$">
+        Header set Cache-Control "public, immutable, max-age=31536000"
+    </FilesMatch>
+
+</IfModule>
+
+# ============================================================================
+# СЖАТИЕ
+# ============================================================================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain text/html text/css text/javascript
+    AddOutputFilterByType DEFLATE application/javascript application/json
+    AddOutputFilterByType DEFLATE application/ld+json application/xml
+    AddOutputFilterByType DEFLATE image/svg+xml font/woff2
+</IfModule>
+
+# ============================================================================
+# КЭШ БРАУЗЕРА (дублирует Cache-Control)
+# ============================================================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html                 "access plus 0 seconds"
+    ExpiresByType application/ld+json       "access plus 0 seconds"
+    ExpiresByType text/css                  "access plus 1 year"
+    ExpiresByType application/javascript    "access plus 1 year"
+    ExpiresByType text/javascript           "access plus 1 year"
+    ExpiresByType image/jpeg                "access plus 1 year"
+    ExpiresByType image/png                 "access plus 1 year"
+    ExpiresByType image/webp                "access plus 1 year"
+    ExpiresByType image/avif                "access plus 1 year"
+    ExpiresByType image/svg+xml             "access plus 1 year"
+    ExpiresByType image/x-icon              "access plus 1 year"
+    ExpiresByType font/woff2                "access plus 1 year"
+    ExpiresByType font/woff                 "access plus 1 year"
+</IfModule>
+
+# ============================================================================
+# Rate-limiting на уровне Apache (mod_qos или mod_evasive)
+# ============================================================================
+# Для shared-хостинга без nginx — подключить mod_evasive:
+#   DOSHashTableSize 3097
+#   DOSPageCount 3          # 3 запроса к /api/lead
+#   DOSSiteInterval 600     # за 10 минут
+#   DOSBlockingPeriod 600   # бан на 10 минут
+# (вынести в серверный конфиг, не .htaccess — это просто памятка)
+
+# ============================================================================
+# MIME-типы
+# ============================================================================
+<IfModule mod_mime.c>
+    AddType application/ld+json            .jsonld
+    AddType application/json               .json
+    AddType text/plain                     .securitytxt
+    AddType image/avif                     .avif
+    AddType image/webp                     .webp
+    AddType font/woff2                     .woff2
+</IfModule>
+
+# ============================================================================
+# CSP reporting endpoint (через PHP)
+# ============================================================================
+# Принимать POST-репорты от браузеров на /csp-report
+<Files "csp-report.php">
+    Header set Access-Control-Allow-Origin "'self'"
+    Header set Content-Type "application/json"
+</Files>
+
+# ============================================================================
+# Безопасность PHP (если работает как модуль/CGI)
+# ============================================================================
+<IfModule mod_php.c>
+    php_flag expose_php              Off
+    php_flag display_errors          Off
+    php_flag log_errors              On
+    php_value error_log              /var/log/skyline/php-errors.log
+    php_value max_execution_time     30
+    php_value max_input_time         30
+    php_value post_max_size          1M
+    php_value upload_max_filesize    1M
+    php_flag allow_url_include       Off
+    php_flag allow_url_fopen         On
+    php_value session.cookie_httponly 1
+    php_value session.cookie_secure   1
+    php_value session.cookie_samesite "Lax"
+    php_value session.use_strict_mode 1
+    php_value session.use_only_cookies 1
+    php_value session.gc_maxlifetime 1800
+    php_flag opcache.enable          On
+</IfModule>
+
+# Спрятать wp-login / admin / phpinfo — стандартные векторы
+<FilesMatch "^(wp-login\.php|xmlrpc\.php|phpinfo\.php|admin|wp-admin)">
+    Require all denied
+</FilesMatch>

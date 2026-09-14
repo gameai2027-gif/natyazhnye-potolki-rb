@@ -1,0 +1,17 @@
+{
+  "name": "SkyLine — Натяжные потолки в Иглино и Уфе",
+  "short_name": "SkyLine",
+  "description": "Установка натяжных потолков в Республике Башкортостан",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f1b3d",
+  "theme_color": "#0f1b3d",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
