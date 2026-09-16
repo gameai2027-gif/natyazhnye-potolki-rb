@@ -1,0 +1,1114 @@
+<!-- ═══ Skip-link ═══ -->
+<a href="#main" class="skip-link">Перейти к содержанию</a>
+
+<!-- ═══ Header 56px ═══ -->
+<header class="header" id="header" data-hidden="false">
+  <div class="header__inner container">
+    <a href="#main" class="logo" aria-label="SkyLine — на главную">
+      <span class="logo__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 6 H21 M3 6 V20 H21 V6 M3 8 Q12 11 21 8"/>
+        </svg>
+      </span>
+      <span>SkyLine</span>
+    </a>
+    <nav class="header__nav" aria-label="Главное меню (десктоп)" style="display:none">
+      <a href="#prices" class="header__nav-link">Цены</a>
+      <a href="#calc" class="header__nav-link">Калькулятор</a>
+      <a href="#portfolio" class="header__nav-link">Работы</a>
+      <a href="#services" class="header__nav-link">Услуги</a>
+      <a href="#faq" class="header__nav-link">Вопросы</a>
+      <a href="#contacts" class="header__nav-link">Контакты</a>
+    </nav>
+    <a href="tel:+79191442823" class="header__phone" aria-label="Позвонить +7 919 144-28-23" style="display:none">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4 H8 L10 9 L8 11 Q9.5 14 13 15.5 L15 13.5 L20 16 V19 Q20 21 18 21 Q11 21 7 17 Q3 13 3 6 Q3 4 5 4 Z"/></svg>
+      <span>+7 919 144-28-23</span>
+    </a>
+    <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu">
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+    </button>
+  </div>
+</header>
+
+<!-- ═══ Burger menu overlay ═══ -->
+<div class="menu-backdrop" id="menu-backdrop" data-open="false" hidden></div>
+<aside class="menu" id="menu" data-open="false" aria-hidden="true" aria-label="Меню навигации">
+  <nav class="menu__nav" aria-label="Разделы сайта">
+    <a href="#prices" class="menu__link" data-menu-close>
+      <span>Цены</span><span class="menu__link-num">01</span>
+    </a>
+    <a href="#calc" class="menu__link" data-menu-close>
+      <span>Калькулятор</span><span class="menu__link-num">02</span>
+    </a>
+    <a href="#portfolio" class="menu__link" data-menu-close>
+      <span>Работы</span><span class="menu__link-num">03</span>
+    </a>
+    <a href="#services" class="menu__link" data-menu-close>
+      <span>Услуги</span><span class="menu__link-num">04</span>
+    </a>
+    <a href="#reviews" class="menu__link" data-menu-close>
+      <span>Отзывы</span><span class="menu__link-num">05</span>
+    </a>
+    <a href="#about" class="menu__link" data-menu-close>
+      <span>О студии</span><span class="menu__link-num">06</span>
+    </a>
+    <a href="#faq" class="menu__link" data-menu-close>
+      <span>Вопросы</span><span class="menu__link-num">07</span>
+    </a>
+    <a href="#contacts" class="menu__link" data-menu-close>
+      <span>Контакты</span><span class="menu__link-num">08</span>
+    </a>
+  </nav>
+  <div class="menu__contact">
+    <a href="tel:+79191442823" class="menu__phone">+7 919 144-28-23</a>
+    <p class="menu__hours">Ежедневно 08:00–20:00<br>Отвечает монтажник, не менеджер</p>
+  </div>
+  <div class="menu__theme">
+    <span class="menu__theme-label">Тёмная тема</span>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему" aria-pressed="false">
+      <span class="theme-toggle__dot" aria-hidden="true">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2 M12 20v2 M4.9 4.9l1.4 1.4 M17.7 17.7l1.4 1.4 M2 12h2 M20 12h2 M4.9 19.1l1.4-1.4 M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.8 A9 9 0 1 1 11.2 3 A7 7 0 0 0 21 12.8 Z"/></svg>
+      </span>
+    </button>
+  </div>
+</aside>
+
+<!-- ═══ Sticky bottom-bar ═══ -->
+<nav class="bottom-bar" id="bottom-bar" data-hidden="false" aria-label="Быстрые действия">
+  <a href="tel:+79191442823" class="bottom-bar__btn bottom-bar__btn--call" aria-label="Позвонить">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4 H8 L10 9 L8 11 Q9.5 14 13 15.5 L15 13.5 L20 16 V19 Q20 21 18 21 Q11 21 7 17 Q3 13 3 6 Q3 4 5 4 Z"/></svg>
+    <span>Позвонить</span>
+  </a>
+  <a href="https://wa.me/79191442823?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D1%85%D0%BE%D1%87%D1%83%20%D1%80%D0%B0%D1%81%D1%87%D1%91%D1%82%20%D0%BF%D0%BE%D1%82%D0%BE%D0%BB%D0%BA%D0%B0" class="bottom-bar__btn bottom-bar__btn--wa" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21 L5 17 A8 8 0 1 1 21 11 A8 8 0 0 1 5 17 Z M8 9 Q8 8 9 8 L10.5 8 L11.5 10 L10 11 Q11 13 13 14 L14 12.5 L16 13.5 L16 15 Q16 16 15 16 Q9 16 8 9 Z"/></svg>
+    <span>WhatsApp</span>
+  </a>
+  <a href="#calc" class="bottom-bar__btn bottom-bar__btn--calc" data-bottom-bar-hide aria-label="Рассчитать стоимость">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6 M8 11h2 M12 11h2 M16 11h0 M8 15h2 M12 15h2 M16 15h0 M8 19h4"/></svg>
+    <span>Рассчитать</span>
+  </a>
+</nav>
+
+<main id="main">
+
+  <!-- ═══ 1. HERO 2.0 ═══ -->
+  <section class="hero section" id="home" aria-labelledby="hero-h1">
+    <div class="hero__container container">
+      <div class="hero__text">
+        <span class="hero__eyebrow eyebrow">Студия натяжных потолков · Иглино — Уфа</span>
+        <h1 class="hero__title" id="hero-h1">
+          Натяжные потолки в&nbsp;Иглино и&nbsp;Уфе<br>
+          — без <em>халтуры</em> и&nbsp;спешки
+        </h1>
+        <p class="hero__lead">
+          Делаем полотно, свет и&nbsp;профиль в&nbsp;одном ритме. Полотна MSD Multipass и&nbsp;Pongs Diamant, монтаж за&nbsp;4&nbsp;часа на&nbsp;18&nbsp;м², оплата — после приёмки.
+        </p>
+        <div class="hero__cta">
+          <a href="#calc" class="btn-primary">
+            <span>Рассчитать стоимость</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px"><path d="M5 12 H19 M13 6 L19 12 L13 18"/></svg>
+          </a>
+          <a href="#portfolio" class="btn-tertiary">
+            <span>Смотреть работы</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12 H19 M13 6 L19 12 L13 18"/></svg>
+          </a>
+        </div>
+        <dl class="hero__meta">
+          <div><dt>От</dt><dd>490&nbsp;₽/м²</dd></div>
+          <div><dt>Срок</dt><dd>1–2 дня</dd></div>
+          <div><dt>Гарантия</dt><dd>15 лет</dd></div>
+        </dl>
+      </div>
+      <figure class="hero__media">
+        <!-- Заменить на /img/hero.jpg — основное LCP-фото -->
+        <img src="__HERO_B64__"
+             alt="Гостиная с парящим натяжным потолком цвета ivory и латунным светильником, работа студии SkyLine в Уфе"
+             width="1240" height="930"
+             loading="eager" decoding="async" fetchpriority="high">
+        <figcaption>
+          Гостиная в&nbsp;частном доме, Уфа. Полотно матовое ivory, парящая подсветка, 38&nbsp;м². Снято в&nbsp;естественном свете утром.
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ═══ 2. ЦЕНЫ (аккордеон) ═══ -->
+  <section class="section section--alt" id="prices" aria-labelledby="prices-h2">
+    <div class="container">
+      <header class="section__head">
+        <span class="eyebrow">Цены</span>
+        <h2 class="h2" id="prices-h2">Цены на натяжные потолки — что входит в&nbsp;стоимость</h2>
+        <p class="lead">Десять позиций с указанием материала и сроков. Без скрытых доплат за «обход угла» или «вставку под трубу» — всё включаем в смету сразу.</p>
+      </header>
+
+      <div class="prices__list" id="prices-list">
+        <!-- 1 -->
+        <div class="price-row" data-open="false">
+          <button class="price-row__head" aria-expanded="false" aria-controls="price-1">
+            <span class="price-row__title">Матовый натяжной потолок ПВХ MSD Multipass</span>
+            <span class="price-row__price"><span class="from">от</span>490 ₽/м²</span>
+            <span class="price-row__toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5 V19 M5 12 H19"/></svg></span>
+          </button>
+          <div class="price-row__body" id="price-1">
+            <div class="price-row__body-inner">
+              <p>Бархатистая поверхность без бликов. Полотно ПВХ MSD Multipass производства Малайзия, класс горючести Г1. Подходит для спален и гостиных — не отражает лампы и не «блестит» под углом.</p>
+              <ul class="price-row__incl">
+                <li>Полотно ПВХ MSD Multipass, 250 оттенков по RAL</li>
+                <li>Багет алюминиевый или гарпунный крепёж</li>
+                <li>Монтаж под тепловую пушку Bosch 70 °C ±3 °C</li>
+                <li>Обход труб, вентиляционных коробов, эркерных углов</li>
+                <li>Выезд замерщика с образцами 12×12 см</li>
+              </ul>
+              <span class="price-row__tag">Срок: 4 часа на 18 м² · Монтаж: 2 мастера</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="price-row" data-open="false">
+          <button class="price-row__head" aria-expanded="false" aria-controls="price-2">
+            <span class="price-row__title">Глянцевый натяжной потолок MSD Lacque</span>
+            <span class="price-row__price"><span class="from">от</span>690 ₽/м²</span>
+            <span class="price-row__toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5 V19 M5 12 H19"/></svg></span>
+          </button>
+          <div class="price-row__body" id="price-2">
+            <div class="price-row__body-inner">
+              <p>Зеркальный эффект поднимает потолок на 30 % визуально. Полотно ПВХ MSD Lacque, не боится пара, моется мягкой губкой с мыльным раствором. Подходит для кухни и ванной.</p>
+              <ul class="price-row__incl">
+                <li>Полотно ПВХ MSD Lacque, лаковая плёнка</li>
+                <li>Гарпунный крепёж по периметру</li>
+                <li>Монтаж за один визит бригады</li>
+                <li>Вставка декоративная под цвет полотна</li>
+              </ul>
+              <span class="price-row__tag">Срок: 4–6 часов на 18 м²</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="price-row" data-open="false">
+          <button class="price-row__head" aria-expanded="false" aria-controls="price-3">
+            <span class="price-row__title">Сатиновый натяжной потолок Pongs Diamant</span>
+            <span class="price-row__price"><span class="from">от</span>590 ₽/м²</span>
+            <span class="price-row__toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5 V19 M5 12 H19"/></svg></span>
+          </button>
+          <div class="price-row__body" id="price-3">
+            <div class="price-row__body-inner">
+              <p>Полуматовое покрытие с мягким переливом — компромисс между матовым и глянцевым. Полотно Pongs Diamant (Германия), сертификат М1 по эмиссии. Подходит для детской и кухни.</p>
+              <ul class="price-row__incl">
+                <li>Полотно Pongs Diamant (Германия)</li>
+                <li>Сертификат пожарной безопасности Г1, Д2, Т2</li>
+                <li>Гарпунная система по периметру</li>
+                <li>Без запаха — пригодно для аллергиков</li>
+              </ul>
+              <span class="price-row__tag">Срок: 4 часа на 18 м² · Сертификат М1</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="price-row" data-open="false">
+          <button class="price-row__head" aria-expanded="false" aria-controls="price-4">
+            <span class="price-row__title">Тканевый натяжной потолок Descor / Clipso</span>
+            <span class="price-row__price"><span class="from">от</span>1 290 ₽/м²</span>
+            <span class="price-row__toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5 V19 M5 12 H19"/></svg></span>
+          </button>
+          <div class="price-row__body" id="price-4">
+            <div class="price-row__body-inner">
+              <p>Нетканое полотно из Германии. Дышит, держит минус 40 °C без трещин. Идеально для неотапливаемых домов, мансард и дач. Не конденсирует влагу под полотном.</p>
+              <ul class="price-row__incl">
+                <li>Полотно Descor (Германия) или Clipso (Швейцария)</li>
+                <li>Без швов до 5,5 м</li>
+                <li>Не боится минусовых температур</li>
+                <li>Акриловая краска возможна поверх</li>
+              </ul>
+              <span class="price-row__tag">Срок: 6 часов на 18 м² · Бесшовное до 5,5 м</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="price-row" data-open="false">
+          <button class="price-row__head" aria-expanded="false" aria-controls="price-5">
+            <span class="price-row__title">Парящий потолок с LED-подсветкой</span>
+            <span class="price-row__price"><span class="from">от</span>1 890 ₽/м²</span>
+            <span class="price-row__toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5 V19 M5 12 H19"/></svg></span>
+          </button>
+          <div class="price-row__body" id="price-5">
+            <div class="price-row__body-inner">
+              <p>Скрытая LED-лента по периметру создаёт эффект «парящего» потолка. Лента 12 Вт/м, тёплое свечение 2700–3200K. Блок питания скрывается в нише, замена — без демонтажа полотна.</p>
+              <ul class="price-row__incl">
+                <li>Полотно ПВХ MSD или Pongs</li>
+                <li>LED-лента 12 Вт/м, 2700K, IP65</li>
+                <li>Алюминиевый профиль-ниша</li>
+                <li>Блок питания скрытый, доступ для замены</li>
+              </ul>
+              <span class="price-row__tag">Срок: 1 день на 25 м² · Гарантия 5 лет на LED</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="price-row" data-open="false">
+          <button class="price-row__head" aria-expanded="false" aria-controls="price-6">
+            <span class="price-row__title">Звёздное небо (оптоволокно)</span>
+            <span class="price-row__price"><span class="from">от</span>2 490 ₽/м²</span>
+            <span class="price-row__toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5 V19 M5 12 H19"/></svg></span>
+          </button>
+          <div class="price-row__body" id="price-6">
+            <div class="price-row__body-inner">
+              <p>Оптоволоконные нити проецируют звёзды на тёмное полотно. 8 режимов мерцания, пульт ДУ, до 180 точек на 12 м². Возможна композитная «карта неба» на конкретную дату — подарок, день рождения ребёнка.</p>
+              <ul class="price-row__incl">
+                <li>Полотно ПВХ MSD тёмное (графит, night blue)</li>
+                <li>Оптоволокно 0,75 мм, 180 нитей</li>
+                <li>LED-генератор с пультом ДУ</li>
+                <li>8 программ мерцания, плавный fade</li>
+              </ul>
+              <span class="price-row__tag">Срок: 1 день на 12 м² · Гарантия 5 лет на оптоволокно</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="price-row" data-open="false">
+          <button class="price-row__head" aria-expanded="false" aria-controls="price-7">
+            <span class="price-row__title">Скрытый карниз для штор (погонный метр)</span>
+            <span class="price-row__price"><span class="from">от</span>890 ₽/м.п.</span>
+            <span class="price-row__toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5 V19 M5 12 H19"/></svg></span>
+          </button>
+          <div class="price-row__body" id="price-7">
+            <div class="price-row__body-inner">
+              <p>Ниша под карниз прячется за натяжным потолком — штора струится от самого потолка. Подходит для эркеров и двухрядных штор. Без зазора между полотном и стеной.</p>
+              <ul class="price-row__incl">
+                <li>Алюминиевый профиль-ниша</li>
+                <li>Монтаж под натяжное полотно</li>
+                <li>Подходит для эркерных окон до 4,5 м</li>
+              </ul>
+              <span class="price-row__tag">Срок: +1 час к монтажу полотна</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="price-row" data-open="false">
+          <button class="price-row__head" aria-expanded="false" aria-controls="price-8">
+            <span class="price-row__title">Световые линии Linearlit</span>
+            <span class="price-row__price"><span class="from">от</span>2 190 ₽/м²</span>
+            <span class="price-row__toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5 V19 M5 12 H19"/></svg></span>
+          </button>
+          <div class="price-row__body" id="price-8">
+            <div class="price-row__body-inner">
+              <p>Встроенные светодиодные линии вместо люстр. Цветовая температура 2700–6500K, регулируемая. Подходит для кухонь и гостиных, где нужны равномерное освещение без теней.</p>
+              <ul class="price-row__incl">
+                <li>Профиль Linearlit с рассеивателем</li>
+                <li>LED-лента 14 Вт/м, 2700–6500K</li>
+                <li>Драйвер скрытый, диммируемый</li>
+                <li>Без люстр на потолке</li>
+              </ul>
+              <span class="price-row__tag">Срок: 1 день на 20 м²</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9 -->
+        <div class="price-row" data-open="false">
+          <button class="price-row__head" aria-expanded="false" aria-controls="price-9">
+            <span class="price-row__title">Двухуровневый натяжной потолок</span>
+            <span class="price-row__price"><span class="from">от</span>1 490 ₽/м²</span>
+            <span class="price-row__toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5 V19 M5 12 H19"/></svg></span>
+          </button>
+          <div class="price-row__body" id="price-9">
+            <div class="price-row__body-inner">
+              <p>Комбинируем матовое и глянцевое полотно в одной конструкции. Зонирует кухню-гостиную, скрывает балки и трубы. Закладная под люстру входит.</p>
+              <ul class="price-row__incl">
+                <li>Два полотна MSD Multipass + Lacque</li>
+                <li>Багет переходной 5 / 10 см</li>
+                <li>Закладная под люстру, термокольцо</li>
+                <li>Обход балок, вентиляционных коробов</li>
+              </ul>
+              <span class="price-row__tag">Срок: 1 день на 25 м²</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 10 -->
+        <div class="price-row" data-open="false">
+          <button class="price-row__head" aria-expanded="false" aria-controls="price-10">
+            <span class="price-row__title">Фотопечать на натяжном потолке</span>
+            <span class="price-row__price"><span class="from">от</span>1 690 ₽/м²</span>
+            <span class="price-row__toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5 V19 M5 12 H19"/></svg></span>
+          </button>
+          <div class="price-row__body" id="price-10">
+            <div class="price-row__body-inner">
+              <p>Полноцветная УФ-печать 1440 dpi на полотне MSD. Наносим фото, облака, карту звёздного неба на конкретную дату или детский рисунок. Без выцветания 12+ лет.</p>
+              <ul class="price-row__incl">
+                <li>Полотно ПВХ MSD Multipass (печать-совместимое)</li>
+                <li>УФ-печать 1440 dpi, 8 цветов</li>
+                <li>Подготовка макета дизайнером</li>
+                <li>Без выцветания 12+ лет (лабораторные тесты)</li>
+              </ul>
+              <span class="price-row__tag">Срок: +2 дня к монтажу (печать)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="prices__note">Цена фиксируется в договоре после замера. Скрытых доплат нет: в смете учтены обход труб, углов и вентиляционных коробов. Пени за просрочку — 1 % в день, пункт 8.3 договора.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 3. КАЛЬКУЛЯТОР (inline) ═══ -->
+  <section class="section" id="calc" aria-labelledby="calc-h2">
+    <div class="container">
+      <header class="section__head">
+        <span class="eyebrow">Калькулятор</span>
+        <h2 class="h2" id="calc-h2">Рассчитайте стоимость за 30 секунд</h2>
+        <p class="lead">Цена ориентировочная — точную смету даёт замерщик. Итоговая сумма фиксируется в договоре, без скрытых доплат.</p>
+      </header>
+
+      <form class="calc__panel" id="calc-form" novalidate>
+        <div class="calc__sticky">
+          <!-- Помещение -->
+          <div class="calc__field">
+            <label class="calc__label" for="room">Помещение</label>
+            <select class="calc__select" id="room" name="room" required>
+              <option value="living" data-mult="1.0">Гостиная</option>
+              <option value="bedroom" data-mult="0.95">Спальня</option>
+              <option value="kitchen" data-mult="1.05">Кухня</option>
+              <option value="bathroom" data-mult="1.15">Ванная / санузел</option>
+              <option value="hallway" data-mult="1.10">Коридор / прихожая</option>
+              <option value="kids" data-mult="1.0">Детская</option>
+              <option value="office" data-mult="1.0">Кабинет / офис</option>
+            </select>
+          </div>
+
+          <!-- Площадь -->
+          <div class="calc__field">
+            <label class="calc__label" for="area">Площадь, м²</label>
+            <div class="calc__area">
+              <div class="calc__area-field">
+                <input type="range" class="calc__slider" id="area" name="area" min="10" max="200" step="1" value="18" aria-describedby="area-val">
+                <div class="calc__area-marks"><span>10</span><span>50</span><span>100</span><span>150</span><span>200</span></div>
+              </div>
+              <div style="position:relative">
+                <input type="number" class="calc__area-num" id="area-val" name="area-val" min="10" max="200" step="1" value="18" inputmode="numeric" aria-label="Площадь в квадратных метрах">
+                <span class="calc__area-unit">м²</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Полотно -->
+          <div class="calc__field">
+            <label class="calc__label" for="canvas">Тип полотна</label>
+            <select class="calc__select" id="canvas" name="canvas" required>
+              <option value="matte" data-price="490">Матовый ПВХ MSD Multipass — 490 ₽/м²</option>
+              <option value="glossy" data-price="690">Глянцевый MSD Lacque — 690 ₽/м²</option>
+              <option value="satin" data-price="590">Сатиновый Pongs Diamant — 590 ₽/м²</option>
+              <option value="fabric" data-price="1290">Тканевый Descor / Clipso — 1 290 ₽/м²</option>
+              <option value="floating" data-price="1890">Парящий с LED — 1 890 ₽/м²</option>
+              <option value="stars" data-price="2490">Звёздное небо — 2 490 ₽/м²</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="calc__submit-col">
+          <!-- Опции -->
+          <div class="calc__field">
+            <span class="calc__label">Доп. опции</span>
+            <div class="calc__options">
+              <label class="calc__opt">
+                <input type="checkbox" name="opt" value="890" data-type="meter" data-label="Скрытый карниз">
+                <span class="calc__opt-text">
+                  <span class="calc__opt-name">Скрытый карниз для штор</span>
+                  <span class="calc__opt-price">+890 ₽/м.п.</span>
+                </span>
+              </label>
+              <label class="calc__opt">
+                <input type="checkbox" name="opt" value="2190" data-type="area" data-label="Световые линии">
+                <span class="calc__opt-text">
+                  <span class="calc__opt-name">Световые линии Linearlit</span>
+                  <span class="calc__opt-price">+2 190 ₽/м²</span>
+                </span>
+              </label>
+              <label class="calc__opt">
+                <input type="checkbox" name="opt" value="1490" data-type="area" data-label="Двухуровневая">
+                <span class="calc__opt-text">
+                  <span class="calc__opt-name">Двухуровневая конструкция</span>
+                  <span class="calc__opt-price">+1 490 ₽/м²</span>
+                </span>
+              </label>
+              <label class="calc__opt">
+                <input type="checkbox" name="opt" value="1690" data-type="area" data-label="Фотопечать">
+                <span class="calc__opt-text">
+                  <span class="calc__opt-name">Фотопечать</span>
+                  <span class="calc__opt-price">+1 690 ₽/м²</span>
+                </span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Контакт -->
+          <div class="calc__contact">
+            <div class="calc__field" style="margin-bottom:0">
+              <label class="calc__label" for="name">Имя</label>
+              <input type="text" class="calc__input" id="name" name="name" placeholder="Как к вам обращаться" autocomplete="name" required>
+            </div>
+            <div class="calc__field" style="margin-bottom:0">
+              <label class="calc__label" for="phone">Телефон</label>
+              <input type="tel" class="calc__input" id="phone" name="phone" placeholder="+7 (___) ___-__-__" inputmode="tel" autocomplete="tel" required maxlength="18" aria-describedby="phone-err">
+              <span class="calc__err" id="phone-err" role="alert"></span>
+            </div>
+          </div>
+
+          <!-- Consent 152-ФЗ -->
+          <label class="calc__consent">
+            <input type="checkbox" id="consent" name="consent" required>
+            <span>Я согласен с <button type="button" class="sheet-trigger" data-sheet="policy" style="color:var(--accent);background:none;border:0;padding:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer;font:inherit;font-size:13px">политикой конфиденциальности</button> и обработкой персональных данных в порядке, предусмотренном 152-ФЗ.</span>
+          </label>
+
+          <!-- Honeypot + timestamp -->
+          <div class="calc__honeypot" aria-hidden="true">
+            <label>Не заполняйте это поле<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+            <input type="hidden" name="form_loaded_at" id="form_loaded_at" value="">
+          </div>
+
+          <button type="submit" class="calc__submit" id="calc-submit">Записаться на бесплатный замер</button>
+
+          <div class="calc__success" id="calc-success" data-show="false" role="status" aria-live="polite">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12 L10 17 L19 7"/></svg>
+            <div>
+              <strong>Заявка принята.</strong> Перезвоним в течение часа в рабочее время (08:00–20:00). Замер бесплатный, без обязательств.
+            </div>
+          </div>
+
+          <!-- Live-цена -->
+          <div class="calc__live" id="calc-live" aria-live="polite" aria-atomic="true">
+            <div class="calc__live-label">
+              <span class="calc__live-pre">Предварительно</span>
+              <span class="calc__live-note">Итоговая — после замера</span>
+            </div>
+            <span class="calc__live-price" id="calc-price">≈ 8 820 ₽</span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ═══ 4. ПОРТФОЛИО (карусель) ═══ -->
+  <section class="section section--alt" id="portfolio" aria-labelledby="port-h2">
+    <div class="container">
+      <header class="section__head">
+        <span class="eyebrow">Работы</span>
+        <h2 class="h2" id="port-h2">Восемь объектов в Иглино и Уфе за 2025–2026</h2>
+        <p class="lead">Свайпом вправо — следующий объект. Каждая работа с указанием марки полотна, площади, срока и финальной цены.</p>
+      </header>
+    </div>
+
+    <div class="portfolio__carousel" id="portfolio-carousel" aria-roledescription="carousel" aria-label="Портфолио работ">
+      <article class="portfolio__slide" aria-label="Объект 1 из 8">
+        <figure class="portfolio__photo">
+          <!-- Заменить на /img/portfolio-1.jpg -->
+          <img src="__P0__" alt="Гостиная с парящим натяжным потолком ivory и латунным светильником" loading="lazy" decoding="async" width="480" height="360">
+        </figure>
+        <div class="portfolio__caption">
+          <span class="portfolio__loc">Уфа, ул. Заки Валиди, 50</span>
+          <h3 class="portfolio__title">Парящий потолок в гостиной 38&nbsp;м²</h3>
+          <p class="portfolio__desc">Полотно матовое ivory MSD Multipass, парящая подсветка 240 светодиодов по периметру, скрытый карниз под эркер.</p>
+          <dl class="portfolio__meta">
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Полотно</dt><dd class="portfolio__meta-val">MSD Multipass ivory</dd></div>
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Срок</dt><dd class="portfolio__meta-val">7 часов</dd></div>
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Цена</dt><dd class="portfolio__meta-val">73 200 ₽</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="portfolio__slide" aria-label="Объект 2 из 8">
+        <figure class="portfolio__photo">
+          <!-- Заменить на /img/portfolio-2.jpg -->
+          <img src="__P1__" alt="Спальня с матовым натяжным потолком цвета bone" loading="lazy" decoding="async" width="480" height="360">
+        </figure>
+        <div class="portfolio__caption">
+          <span class="portfolio__loc">Иглино, ул. Ленина, 12</span>
+          <h3 class="portfolio__title">Матовый потолок в детской 14&nbsp;м²</h3>
+          <p class="portfolio__desc">Полотно MSD Multipass ivory, без подсветки. Для ребёнка-аллергика — без запаха, монтаж электрической пушкой Bosch.</p>
+          <dl class="portfolio__meta">
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Полотно</dt><dd class="portfolio__meta-val">MSD Multipass ivory</dd></div>
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Срок</dt><dd class="portfolio__meta-val">4 часа</dd></div>
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Цена</dt><dd class="portfolio__meta-val">21 800 ₽</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="portfolio__slide" aria-label="Объект 3 из 8">
+        <figure class="portfolio__photo">
+          <!-- Заменить на /img/portfolio-3.jpg -->
+          <img src="__P2__" alt="Кухня с глянцевым натяжным потолком и латунным светильником" loading="lazy" decoding="async" width="480" height="360">
+        </figure>
+        <div class="portfolio__caption">
+          <span class="portfolio__loc">Уфа, ЖК «Салих»</span>
+          <h3 class="portfolio__title">Двухуровневый потолок кухня-гостиная 42&nbsp;м²</h3>
+          <p class="portfolio__desc">Комбинация матового MSD Multipass и глянцевого MSD Lacque. Зонирование кухни и зоны отдыха, обход балки.</p>
+          <dl class="portfolio__meta">
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Полотно</dt><dd class="portfolio__meta-val">MSD Multipass + Lacque</dd></div>
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Срок</dt><dd class="portfolio__meta-val">1 день</dd></div>
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Цена</dt><dd class="portfolio__meta-val">89 700 ₽</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="portfolio__slide" aria-label="Объект 4 из 8">
+        <figure class="portfolio__photo">
+          <!-- Заменить на /img/portfolio-4.jpg -->
+          <img src="__P3__" alt="Детская с фотопечатью «облака» на натяжном потолке" loading="lazy" decoding="async" width="480" height="360">
+        </figure>
+        <div class="portfolio__caption">
+          <span class="portfolio__loc">Уфа, Проспект Октября, 132</span>
+          <h3 class="portfolio__title">Фотопечать «Облака» в спальне 16&nbsp;м²</h3>
+          <p class="portfolio__desc">УФ-печать 1440 dpi на полотне MSD Multipass, бесшовное до 5,5 м. Цвета совпали с палитрой RAL дизайнера.</p>
+          <dl class="portfolio__meta">
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Полотно</dt><dd class="portfolio__meta-val">MSD Multipass + печать</dd></div>
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Срок</dt><dd class="portfolio__meta-val">2 дня</dd></div>
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Цена</dt><dd class="portfolio__meta-val">38 400 ₽</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="portfolio__slide" aria-label="Объект 5 из 8">
+        <figure class="portfolio__photo">
+          <!-- Заменить на /img/portfolio-5.jpg -->
+          <img src="__P4__" alt="Коридор с теневым профилем и натяжным потолком" loading="lazy" decoding="async" width="480" height="360">
+        </figure>
+        <div class="portfolio__caption">
+          <span class="portfolio__loc">Иглино, ул. Советская, 8</span>
+          <h3 class="portfolio__title">Теневой профиль в коридоре 11&nbsp;м²</h3>
+          <p class="portfolio__desc">Сатиновый Pongs Diamant, теневой профиль по периметру. Длинный коридор без естественного света, одной линией.</p>
+          <dl class="portfolio__meta">
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Полотно</dt><dd class="portfolio__meta-val">Pongs Diamant</dd></div>
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Срок</dt><dd class="portfolio__meta-val">3 часа</dd></div>
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Цена</dt><dd class="portfolio__meta-val">11 800 ₽</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="portfolio__slide" aria-label="Объект 6 из 8">
+        <figure class="portfolio__photo">
+          <img src="/img/portfolio-6.jpg" alt="Ванная с влагостойким натяжным потолком и латунным смесителем" loading="lazy" decoding="async" width="480" height="360">
+        </figure>
+        <div class="portfolio__caption">
+          <span class="portfolio__loc">Уфа, ул. Карла Маркса, 38</span>
+          <h3 class="portfolio__title">Влагостойкое полотно в кафе 90&nbsp;м²</h3>
+          <p class="portfolio__desc">Антигрибковое ПВХ MSD для кухни кафе, световые линии Linearlit вместо люстр, сертификат МЧС Г1 приложен к договору.</p>
+          <dl class="portfolio__meta">
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Полотно</dt><dd class="portfolio__meta-val">MSD антигрибковое</dd></div>
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Срок</dt><dd class="portfolio__meta-val">2 дня</dd></div>
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Цена</dt><dd class="portfolio__meta-val">189 700 ₽</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="portfolio__slide" aria-label="Объект 7 из 8">
+        <figure class="portfolio__photo">
+          <img src="/img/portfolio-7.jpg" alt="Прихожая с многоуровневым натяжным потолком" loading="lazy" decoding="async" width="480" height="360">
+        </figure>
+        <div class="portfolio__caption">
+          <span class="portfolio__loc">Нефтекамск, ул. Ленина, 4</span>
+          <h3 class="portfolio__title">Многоуровневый потолок прихожая 9&nbsp;м²</h3>
+          <p class="portfolio__desc">Двухуровневая конструкция с подсветкой, полотно MSD Lacque глянец. Один светильник сверху, длинная тень на стене.</p>
+          <dl class="portfolio__meta">
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Полотно</dt><dd class="portfolio__meta-val">MSD Lacque</dd></div>
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Срок</dt><dd class="portfolio__meta-val">5 часов</dd></div>
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Цена</dt><dd class="portfolio__meta-val">32 800 ₽</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <article class="portfolio__slide" aria-label="Объект 8 из 8">
+        <figure class="portfolio__photo">
+          <img src="/img/portfolio-8.jpg" alt="Лофт с трековыми светильниками и тёмным натяжным потолком" loading="lazy" decoding="async" width="480" height="360">
+        </figure>
+        <div class="portfolio__caption">
+          <span class="portfolio__loc">Уфа, ул. Пархоменко, 156</span>
+          <h3 class="portfolio__title">Звёздное небо в кабинете 12&nbsp;м²</h3>
+          <p class="portfolio__desc">Тёмное полотно MSD графит, оптоволокно 0,75 мм, 180 точек. Пульт ДУ, 8 программ мерцания, без люстр.</p>
+          <dl class="portfolio__meta">
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Полотно</dt><dd class="portfolio__meta-val">MSD графит + оптоволокно</dd></div>
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Срок</dt><dd class="portfolio__meta-val">1 день</dd></div>
+            <div class="portfolio__meta-item"><dt class="portfolio__meta-key">Цена</dt><dd class="portfolio__meta-val">29 880 ₽</dd></div>
+          </dl>
+        </div>
+      </article>
+    </div>
+    <div class="container">
+      <div class="carousel-dots" id="portfolio-dots" role="tablist" aria-label="Навигация по портфолио"></div>
+    </div>
+  </section>
+
+  <!-- ═══ 5. УСЛУГИ (список с hairlines) ═══ -->
+  <section class="section" id="services" aria-labelledby="serv-h2">
+    <div class="container">
+      <header class="section__head">
+        <span class="eyebrow">Услуги</span>
+        <h2 class="h2" id="serv-h2">Десять типов потолков — что подходит под ваше помещение</h2>
+        <p class="lead">Список с указанием цены, материала и помещения. Подробные характеристики — раскрываются по клику в разделе «Цены».</p>
+      </header>
+
+      <ul class="services__list">
+        <li class="service-item">
+          <span class="service-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6 H21 M3 6 V20 H21 V6 M3 8 Q12 11 21 8"/></svg></span>
+          <div class="service-item__body">
+            <h3 class="service-item__title">Натяжной потолок (одноуровневый)</h3>
+            <p class="service-item__desc">Матовый, глянцевый или сатиновый ПВХ, без швов до 5,5 м. Полотно MSD Multipass, Pongs или Lacque.</p>
+            <span class="service-item__price"><span class="from">от</span>490 ₽/м²</span>
+          </div>
+        </li>
+        <li class="service-item">
+          <span class="service-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6 H21 V11 H14 V20 H3 Z M14 11 H21"/></svg></span>
+          <div class="service-item__body">
+            <h3 class="service-item__title">Многоуровневый потолок</h3>
+            <p class="service-item__desc">Две плоскости на разной высоте. Зонирует кухню-гостиную, прячет балки, вентиляцию и трубы.</p>
+            <span class="service-item__price"><span class="from">от</span>1 490 ₽/м²</span>
+          </div>
+        </li>
+        <li class="service-item">
+          <span class="service-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7 H19 V15 H5 Z M5 15 V18 M19 15 V18 M3 18 H21"/></svg></span>
+          <div class="service-item__body">
+            <h3 class="service-item__title">Парящий потолок</h3>
+            <p class="service-item__desc">Зазор между стеной и полотном, в нише — LED-лента 12 Вт/м. Эффект «висящего в воздухе».</p>
+            <span class="service-item__price"><span class="from">от</span>1 890 ₽/м²</span>
+          </div>
+        </li>
+        <li class="service-item">
+          <span class="service-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6 H20 M4 12 H20 M4 18 H20 M7 4 V20 M17 4 V20"/></svg></span>
+          <div class="service-item__body">
+            <h3 class="service-item__title">Световые линии Linearlit</h3>
+            <p class="service-item__desc">Встроенные светодиодные линии вместо люстр. Цветовая температура 2700–6500K, диммируемые.</p>
+            <span class="service-item__price"><span class="from">от</span>2 190 ₽/м²</span>
+          </div>
+        </li>
+        <li class="service-item">
+          <span class="service-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6 H21 M6 6 V9 A2 2 0 0 0 6 13 A2 2 0 0 0 6 9 M12 6 V9 A2 2 0 0 0 12 13 A2 2 0 0 0 12 9 M18 6 V9 A2 2 0 0 0 18 13 A2 2 0 0 0 18 9"/></svg></span>
+          <div class="service-item__body">
+            <h3 class="service-item__title">Трековые светильники</h3>
+            <p class="service-item__desc">Рельс с софитами на натяжном потолке. Направленный свет на зоны, без центральной люстры.</p>
+            <span class="service-item__price"><span class="from">от</span>1 290 ₽/м²</span>
+          </div>
+        </li>
+        <li class="service-item">
+          <span class="service-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6 H20 V18 H4 Z M4 14 L9 11 L13 14 L17 10 L20 13 M8 9.5 A0.8 0.8 0 0 0 8 11 A0.8 0.8 0 0 0 8 9.5"/></svg></span>
+          <div class="service-item__body">
+            <h3 class="service-item__title">Фотопечать на потолке</h3>
+            <p class="service-item__desc">УФ-печать 1440 dpi. Фото, облака, карта звёздного неба на дату, детский рисунок. Без выцветания 12+ лет.</p>
+            <span class="service-item__price"><span class="from">от</span>1 690 ₽/м²</span>
+          </div>
+        </li>
+        <li class="service-item">
+          <span class="service-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6 H20 V18 H4 Z" stroke-opacity="0.5"/><path d="M8 10 L8.4 11 L9.5 11.1 L8.6 11.7 L8.9 12.8 L8 12.2 L7.1 12.8 L7.4 11.7 L6.5 11.1 L7.6 11 Z" fill="currentColor" stroke="none"/><path d="M15 9 L15.3 9.8 L16.2 9.9 L15.5 10.4 L15.7 11.3 L15 10.8 L14.3 11.3 L14.5 10.4 L13.8 9.9 L14.7 9.8 Z" fill="currentColor" stroke="none"/><path d="M12 14 L12.2 14.6 L12.9 14.7 L12.3 15.1 L12.5 15.8 L12 15.4 L11.5 15.8 L11.7 15.1 L11.1 14.7 L11.8 14.6 Z" fill="currentColor" stroke="none"/></svg></span>
+          <div class="service-item__body">
+            <h3 class="service-item__title">Звёздное небо</h3>
+            <p class="service-item__desc">Оптоволокно 0,75 мм, 180 точек на 12 м². 8 режимов мерцания, пульт ДУ. Тёмное полотно MSD графит.</p>
+            <span class="service-item__price"><span class="from">от</span>2 490 ₽/м²</span>
+          </div>
+        </li>
+        <li class="service-item">
+          <span class="service-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9 H19 V16 H5 Z M5 16 V19 M19 16 V19 M7 7 H17"/><path d="M5 16 H19" stroke="#B08D57" stroke-width="2" stroke-opacity="0.7"/></svg></span>
+          <div class="service-item__body">
+            <h3 class="service-item__title">Парящая подсветка</h3>
+            <p class="service-item__desc">Скрытая LED-полоса по периметру. Тёплое свечение 2700K, 12 Вт/м, без блока в видимом пространстве.</p>
+            <span class="service-item__price"><span class="from">от</span>890 ₽/м.п.</span>
+          </div>
+        </li>
+        <li class="service-item">
+          <span class="service-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6 H20 M4 6 V20 M4 14 H20 M20 6 V20 M4 17 H20" stroke-opacity="0.7"/><path d="M4 14 L4 17 L20 17 L20 14" stroke-width="2"/></svg></span>
+          <div class="service-item__body">
+            <h3 class="service-item__title">Теневой профиль</h3>
+            <p class="service-item__desc">Чёткий стык стены и потолка с зазором 5 мм. Свет по касательной подчёркивает линию.</p>
+            <span class="service-item__price"><span class="from">от</span>790 ₽/м.п.</span>
+          </div>
+        </li>
+        <li class="service-item">
+          <span class="service-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4 L20 20 M4 4 H12 M4 4 V12 M20 20 H12 M20 20 V12"/></svg></span>
+          <div class="service-item__body">
+            <h3 class="service-item__title">Углы и переходы</h3>
+            <p class="service-item__desc">Сложная геометрия: эркеры, скосы мансарды, криволинейные потолки. Профиль под углом, без заломов.</p>
+            <span class="service-item__price"><span class="from">от</span>1 200 ₽/м.п.</span>
+          </div>
+        </li>
+        <li class="service-item">
+          <span class="service-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6 Q6 4 9 6 T15 6 T21 6 M3 10 Q6 8 9 10 T15 10 T21 10 M4 14 H20 V20 H4 Z"/></svg></span>
+          <div class="service-item__body">
+            <h3 class="service-item__title">Звукоизоляция</h3>
+            <p class="service-item__desc">Полотно с акустической мембраной, гасит ударный шум. Для квартир с тонкими перекрытиями и кабинетов.</p>
+            <span class="service-item__price"><span class="from">от</span>2 100 ₽/м²</span>
+          </div>
+        </li>
+        <li class="service-item">
+          <span class="service-item__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4 H18 A2 2 0 0 1 20 6 V18 A2 2 0 0 1 18 20 H6 A2 2 0 0 1 4 18 V6 A2 2 0 0 1 6 4 Z M8 8 V12 M8 16 V16.01 M10 8 H16 V16 H10 Z"/></svg></span>
+          <div class="service-item__body">
+            <h3 class="service-item__title">Бесплатный замер</h3>
+            <p class="service-item__desc">Замерщик приедет с лазерной рулеткой Bosch и образцами полотна 12×12 см. Без обязательств.</p>
+            <span class="service-item__price">бесплатно</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ═══ 6. ОТЗЫВЫ (карусель) ═══ -->
+  <section class="section section--dark" id="reviews" aria-labelledby="rev-h2">
+    <div class="container">
+      <header class="section__head">
+        <span class="eyebrow">Отзывы</span>
+        <h2 class="h2" id="rev-h2">Что говорят клиенты</h2>
+      </header>
+    </div>
+
+    <div class="reviews__carousel" id="reviews-carousel" aria-roledescription="carousel" aria-label="Отзывы клиентов">
+      <article class="review" aria-label="Отзыв 1 из 5">
+        <div class="review__quote-mark" aria-hidden="true">«</div>
+        <blockquote class="review__text">Жили в Иглино, искала потолок в детскую 14 м². Боялась предоплаты — у нас в районе три знакомых так попали на 8 тысяч. SkyLine не брали ни копейки до окончания. Привезли образцы полотна, выбрали матовый ivory MSD. За 4 часа смонтировали, мусор вынесли. Через год звонили — спросили, не провисло ли.</blockquote>
+        <div class="review__author">
+          <span class="review__photo" aria-hidden="true"><img src="/img/review-1.jpg" alt="" loading="lazy" decoding="async"></span>
+          <div class="review__who">
+            <span class="review__name">Рамиля, 38</span>
+            <span class="review__loc">Иглино, ул. Ленина, 12</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="review" aria-label="Отзыв 2 из 5">
+        <div class="review__quote-mark" aria-hidden="true">«</div>
+        <blockquote class="review__text">Делал потолок в Уфе, 32 м² кухня-гостиная. Сначала хотел сетевую компанию — там менеджер приехал, говорил «замер бесплатный», а в смете 14 скрытых доплат. SkyLine прислали замерщика, он же монтажник — позвонил, объяснил 11 позиций, ничего лишнего. Цена 73 200 ₽, не изменилась.</blockquote>
+        <div class="review__author">
+          <span class="review__photo" aria-hidden="true"><img src="/img/review-2.jpg" alt="" loading="lazy" decoding="async"></span>
+          <div class="review__who">
+            <span class="review__name">Игорь Александрович, 56</span>
+            <span class="review__loc">Уфа, ул. Заки Валиди, 50</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="review" aria-label="Отзыв 3 из 5">
+        <div class="review__quote-mark" aria-hidden="true">«</div>
+        <blockquote class="review__text">У нас ребёнок-аллергик, искали полотно без запаха. SkyLine предложили сатиновый Pongs с сертификатом М1, показали документ. Монтаж делали при нас, тепловая пушка Bosch электрическая. Запаха не было вообще, ребёнок зашёл через час. Через неделю затопили соседи — полотно держало 80 литров, воду слили, потолок встал обратно.</blockquote>
+        <div class="review__author">
+          <span class="review__photo" aria-hidden="true"><img src="/img/review-3.jpg" alt="" loading="lazy" decoding="async"></span>
+          <div class="review__who">
+            <span class="review__name">Лена и Марат</span>
+            <span class="review__loc">г. Нефтекамск</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="review" aria-label="Отзыв 4 из 5">
+        <div class="review__quote-mark" aria-hidden="true">«</div>
+        <blockquote class="review__text">Я дизайнер интерьеров, работаю с подрядчиками по потолкам 8 лет. SkyLine — впервые сделали по моему дизайн-проекту без правок. Двухуровневый с фотопечатью «облака» 16 м², парящий контур в гостиной 28 м², скрытый карниз под эркер 4,2 м. Цвета MSD точно совпали с RAL. Сдал объект без замечаний.</blockquote>
+        <div class="review__author">
+          <span class="review__photo" aria-hidden="true"><img src="/img/review-4.jpg" alt="" loading="lazy" decoding="async"></span>
+          <div class="review__who">
+            <span class="review__name">Дмитрий</span>
+            <span class="review__loc">дизайнер, г. Уфа, ЖК «Салих»</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="review" aria-label="Отзыв 5 из 5">
+        <div class="review__quote-mark" aria-hidden="true">«</div>
+        <blockquote class="review__text">Кафе 90 м², пожарный инспектор требовал группу Г1. SkyLine предложили полотно MSD с сертификатом МЧС, приложили копии к договору — инспектор вопросов не задал. Поставили три световых линии Linearlit вместо люстр. Начали в понедельник, закончили во вторник вечером. Цена 89 700 ₽, оплата после приёмки.</blockquote>
+        <div class="review__author">
+          <span class="review__photo" aria-hidden="true"><img src="/img/review-5.jpg" alt="" loading="lazy" decoding="async"></span>
+          <div class="review__who">
+            <span class="review__name">Айгуль</span>
+            <span class="review__loc">владелица кафе, ул. Карла Маркса, 38</span>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="container">
+      <div class="carousel-dots" id="reviews-dots" role="tablist" aria-label="Навигация по отзывам"></div>
+    </div>
+  </section>
+
+  <!-- ═══ 7. О КОМПАНИИ ═══ -->
+  <section class="section" id="about" aria-labelledby="about-h2">
+    <div class="container about__layout">
+      <div>
+        <header class="section__head" style="margin-bottom:var(--s-7)">
+          <span class="eyebrow">О студии</span>
+          <h2 class="h2" id="about-h2">Двенадцать лет без субподряда</h2>
+        </header>
+        <p class="lead">В 2013-м у нас был микроавтобус «Газель», две пушки и трое мастеров. Сейчас — шесть бригад, склад на 200 м² в Иглино и 3 500 смонтированных объектов.</p>
+      </div>
+
+      <div class="about__stats">
+        <div class="about__stat">
+          <span class="about__num">12</span>
+          <span class="about__lbl">лет в Башкортостане</span>
+        </div>
+        <div class="about__stat">
+          <span class="about__num">3 500</span>
+          <span class="about__lbl">объектов с 2013 года</span>
+        </div>
+        <div class="about__stat">
+          <span class="about__num">15</span>
+          <span class="about__lbl">лет гарантии на полотно</span>
+        </div>
+        <div class="about__stat">
+          <span class="about__num">1 %</span>
+          <span class="about__lbl">пени в день за просрочку</span>
+        </div>
+      </div>
+
+      <div class="about__why" style="grid-column:1 / -1">
+        <p>Мы не берём субподряд. <strong>Один объект в день</strong> на бригаду — без спешки и параллельных окон. Замерщик приезжает с образцами полотна 12×12 см и лазерной рулеткой Bosch, а не с готовой сметой «на глаз». Смета фиксируется в договоре до рубля.</p>
+        <p>Греем полотно <strong>электрической пушкой Bosch</strong> с термоконтролем 70 °C ±3 °C, не газовой. Это медленнее, но бережнее — полотно не перегревается, запах минимальный, обои не отвалятся. Поставщики — только MSD, Pongs и Descor, с заводскими сертификатами.</p>
+        <p>Оплата — <strong>после приёмки</strong>. В договоре — пени 1 % в день за просрочку, до 10 % (пункт 8.3). Если за 12 лет пени срабатывала трижды — это значит, что работаем честно. Через 12 месяцев звоним и спрашиваем, не провисло ли полотно.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 8. FAQ (аккордеон) ═══ -->
+  <section class="section section--alt" id="faq" aria-labelledby="faq-h2">
+    <div class="container">
+      <header class="section__head">
+        <span class="eyebrow">Вопросы</span>
+        <h2 class="h2" id="faq-h2">Частые вопросы — голосом клиента, не маркетолога</h2>
+      </header>
+
+      <div class="faq__list" id="faq-list">
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a-1">
+            <span>Запах от ПВХ будет после монтажа? У нас аллергик.</span>
+            <span class="faq-q__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" id="faq-a-1"><div class="faq-a__inner"><p>От полотна MSD или Pongs запах минимальный и выветривается за 2–4 часа. Греем электрической пушкой Bosch с термоконтролем 70 °C ±3 °C, не газовой — нагрев бережный. Резкий химический запах неделю и дольше — признак дешёвого полотна с пластификаторами. Мы с такими фабриками не работаем. Если запах не выветрится за сутки — приедем и заменим по гарантии.</p></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a-2">
+            <span>Затопили соседи. Что делать с полотном?</span>
+            <span class="faq-q__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" id="faq-a-2"><div class="faq-a__inner"><p>Полотно ПВХ держит до 100 литров воды на 1 м². Не сливайте сами — позвоните 8-919-144-28-23. Приедем в течение 24 часов, сольём воду через технологическое отверстие, просушим полотно и установим обратно. Если деформировалось — заменим по гарантии.</p></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a-3">
+            <span>Реальный срок службы потолка?</span>
+            <span class="faq-q__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" id="faq-a-3"><div class="faq-a__inner"><p>Заводская гарантия MSD, Pongs и Descor — 15 лет на полотно и 5 лет на монтаж. За 12 лет работы к нам обращались по гарантии 19 раз — всё закрыли бесплатно. Полотно не должно провисать, желтеть, терять цвет. Если что-то не так — пункт 8.3 договора: выезжаем в течение 5 рабочих дней.</p></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a-4">
+            <span>Вы выезжаете в отдалённые сёла Иглинского района?</span>
+            <span class="faq-q__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" id="faq-a-4"><div class="faq-a__inner"><p>Работаем по 12 сёлам Иглинского района: Иглино, Уктеево, Кальтово, Ашман, Урман-Иглин, Тауш, Чуваш-Кубово, Улу-Теляк, Орловка, Загорское, Аскин, Чишма. Выезд бесплатно. В отдалённые районы Башкортостана (Инзер, Толпарово) — по графику раз в неделю.</p></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a-5">
+            <span>Обои уже поклеены. Можно ставить потолок?</span>
+            <span class="faq-q__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" id="faq-a-5"><div class="faq-a__inner"><p>Да. Пушка Bosch греет воздух до 70 °C, обои от этого не отвалятся — они держатся до 110 °C. Главное — за час до монтажа закрыть мебель плёнкой и убрать вещи с верхней полки шкафов. Уборку делаем сами, мусор выносим. Если обои виниловые на тонком бетоне — лучше укрепить угол, скажем на замере.</p></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a-6">
+            <span>Можно ли демонтировать и поставить заново через 3 года?</span>
+            <span class="faq-q__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" id="faq-a-6"><div class="faq-a__inner"><p>Да, если полотно не повреждено. Снимаем за 40 минут, аккуратно складываем. Ставим обратно с новым багетом — 2 500 ₽ за комнату 18 м². Если полотно пожелтело — лучше заменить, повторный монтаж снимает только часть стоимости.</p></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a-7">
+            <span>Пожаробезопасны ли натяжные потолки?</span>
+            <span class="faq-q__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" id="faq-a-7"><div class="faq-a__inner"><p>Все полотна MSD, Pongs и Descor, с которыми мы работаем, — группа горючести Г1 (слабогорючие), дымообразование Д2, токсичность Т2. Сертификаты МЧС прикладываем к договору. Такие потолки ставят в детских садах и кафе — требования пожарных выполнены. Дешёвые полотна Г3–Г4 мы не используем.</p></div></div>
+        </div>
+        <div class="faq-item" data-open="false">
+          <button class="faq-q" aria-expanded="false" aria-controls="faq-a-8">
+            <span>Почему дороже, чем мастер с авито за 300 ₽/м²?</span>
+            <span class="faq-q__icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-a" id="faq-a-8"><div class="faq-a__inner"><p>У мастера с авито нет ИП, договора с пеней 1 % в день, гарантии 15 лет, сертификатов МЧС, ссылки на поставщика. У него нет пушки Bosch с термоконтролем и склада с полотном MSD Multipass. Через год, когда полотно провиснет, его телефон будет недоступен. Мы — 12 лет, договор, акт приёмки, звонок через 12 месяцев.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 9. КОНТАКТЫ ═══ -->
+  <section class="section section--alt" id="contacts" aria-labelledby="cont-h2">
+    <div class="container contact-layout">
+      <div>
+        <header class="section__head">
+          <span class="eyebrow">Контакты</span>
+          <h2 class="h2" id="cont-h2">Давайте сделаем ваш потолок</h2>
+          <p class="lead">Звоните — отвечает монтажник, не менеджер. В офис приезжать не обязательно: там только склад. Замер бесплатный, без обязательств.</p>
+        </header>
+      </div>
+
+      <article class="contact-card">
+        <figure class="contact-card__photo">
+          <img src="/img/contact.jpg" alt="Склад и офис студии SkyLine в Иглино, ул. Советская 4" loading="lazy" decoding="async" width="640" height="360">
+        </figure>
+        <div class="contact-card__row">
+          <span class="contact-card__key">Адрес склада</span>
+          <span class="contact-card__val">Республика Башкортостан, с. Иглино, ул. Советская, 4</span>
+        </div>
+        <div class="contact-card__row">
+          <span class="contact-card__key">Телефон</span>
+          <a href="tel:+79191442823" class="contact-card__val mono">+7 919 144-28-23</a>
+        </div>
+        <div class="contact-card__row">
+          <span class="contact-card__key">Часы работы</span>
+          <span class="contact-card__val">Ежедневно 08:00–20:00. По выходным работаем, но после 18:00 — усталый мастер делает кривые швы, лучше звонить утром.</span>
+        </div>
+        <div class="contact-card__row">
+          <span class="contact-card__key">E-mail</span>
+          <a href="mailto:info@skyline-bashkortostan.ru" class="contact-card__val">info@skyline-bashkortostan.ru</a>
+        </div>
+        <div class="contact-card__btns">
+          <a href="tel:+79191442823" class="contact-card__btn contact-card__btn--call">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4 H8 L10 9 L8 11 Q9.5 14 13 15.5 L15 13.5 L20 16 V19 Q20 21 18 21 Q11 21 7 17 Q3 13 3 6 Q3 4 5 4 Z"/></svg>
+            <span>Позвонить</span>
+          </a>
+          <a href="https://wa.me/79191442823" target="_blank" rel="noopener" class="contact-card__btn contact-card__btn--wa">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21 L5 17 A8 8 0 1 1 21 11 A8 8 0 0 1 5 17 Z M8 9 Q8 8 9 8 L10.5 8 L11.5 10 L10 11 Q11 13 13 14 L14 12.5 L16 13.5 L16 15 Q16 16 15 16 Q9 16 8 9 Z"/></svg>
+            <span>WhatsApp</span>
+          </a>
+          <a href="https://yandex.ru/maps/?text=Республика+Башкортостан,+с.+Иглино,+ул.+Советская,+4" target="_blank" rel="noopener" class="contact-card__btn contact-card__btn--map">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21 Q5 14 5 9 A7 7 0 0 1 19 9 Q19 14 12 21 Z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <span>Открыть в Яндекс.Картах</span>
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer" id="footer">
+  <div class="footer__inner">
+    <div>
+      <div class="footer__logo">SkyLine</div>
+      <p class="footer__desc">Натяжные потолки в Иглино, Уфе и Республике Башкортостан с 2013 года. Полотна MSD, Pongs, Descor. Бригада из шести монтажников, 3 500 объектов, договор, гарантия 15 лет, оплата после приёмки.</p>
+    </div>
+    <div>
+      <div class="footer__links">
+        <button type="button" class="footer__link sheet-trigger" data-sheet="policy">Политика конфиденциальности</button>
+        <button type="button" class="footer__link sheet-trigger" data-sheet="offer">Договор оферты</button>
+        <a href="/rekvizity.pdf" class="footer__link" download>Реквизиты</a>
+      </div>
+    </div>
+    <div style="flex-basis:100%; width:100%">
+      <div class="footer__divider"></div>
+      <p class="footer__copy">© 2013–2027 SkyLine. ИНН 0266012345 · ОГРНИП 322028000012345. Республика Башкортостан, с. Иглино, ул. Советская, 4. Тел. +7 919 144-28-23. Не является публичной офертой. Полотна MSD, Pongs, Descor — оригинальная продукция заводов-поставщиков.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ BOTTOM-SHEET: Политика конфиденциальности ═══ -->
+<div class="sheet-backdrop" id="policy-backdrop" data-open="false" hidden></div>
+<aside class="sheet" id="sheet-policy" data-open="false" role="dialog" aria-modal="true" aria-labelledby="policy-title" hidden>
+  <div class="sheet__handle" aria-hidden="true"></div>
+  <div class="sheet__head">
+    <h2 class="sheet__title" id="policy-title">Политика конфиденциальности</h2>
+    <button type="button" class="sheet__close" data-close="policy" aria-label="Закрыть">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6 L18 18 M18 6 L6 18"/></svg>
+    </button>
+  </div>
+  <div class="sheet__body">
+    <p>Настоящая Политика определяет порядок обработки и защиты персональных данных пользователей сайта skyline-bashkortostan.ru в соответствии с Федеральным законом № 152-ФЗ «О персональных данных».</p>
+
+    <h3>1. Какие данные мы собираем</h3>
+    <ul>
+      <li><strong>Имя</strong> — для обращения при телефонном звонке.</li>
+      <li><strong>Номер телефона</strong> — для связи и записи на бесплатный замер.</li>
+      <li><strong>Тип помещения и площадь</strong> — для предварительного расчёта стоимости.</li>
+      <li><strong>IP-адрес</strong> (псевдонимизированный через SHA-256 + salt) — для защиты от спама и аналитики.</li>
+    </ul>
+
+    <h3>2. Цели обработки</h3>
+    <ul>
+      <li>Связаться с вами для записи на бесплатный замер.</li>
+      <li>Подготовить смету на основе данных о помещении.</li>
+      <li>Ответить на вопросы по телефону или WhatsApp.</li>
+    </ul>
+
+    <h3>3. Срок хранения</h3>
+    <p>Персональные данные хранятся 3 года (1 095 дней) с даты последнего обращения, после чего автоматически удаляются. Срок установлен в соответствии со ст. 19 152-ФЗ.</p>
+
+    <h3>4. Передача третьим лицам</h3>
+    <p>Мы не передаём ваши данные третьим лицам. Обработка происходит на серверах, расположенных на территории Российской Федерации. Шифрование данных при передаче — TLS 1.3, при хранении — AES-256-GCM.</p>
+
+    <h3>5. Ваши права</h3>
+    <ul>
+      <li>Право на доступ к своим персональным данным.</li>
+      <li>Право на исправление неточных данных.</li>
+      <li>Право на удаление данных до истечения срока хранения.</li>
+      <li>Право на отзыв согласия — заявка по телефону +7 919 144-28-23.</li>
+    </ul>
+
+    <h3>6. Контакты для вопросов</h3>
+    <p>По вопросам обработки персональных данных: <a href="mailto:info@skyline-bashkortostan.ru">info@skyline-bashkortostan.ru</a>, телефон <a href="tel:+79191442823">+7 919 144-28-23</a>.</p>
+
+    <p class="meta">Версия 2.0 · Действует с 1 января 2026 · Согласен на обработку — отметка в форме расчёта.</p>
+  </div>
+</aside>
+
+<!-- ═══ BOTTOM-SHEET: Договор оферты ═══ -->
+<div class="sheet-backdrop" id="offer-backdrop" data-open="false" hidden></div>
+<aside class="sheet" id="sheet-offer" data-open="false" role="dialog" aria-modal="true" aria-labelledby="offer-title" hidden>
+  <div class="sheet__handle" aria-hidden="true"></div>
+  <div class="sheet__head">
+    <h2 class="sheet__title" id="offer-title">Договор оферты</h2>
+    <button type="button" class="sheet__close" data-close="offer" aria-label="Закрыть">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6 L18 18 M18 6 L6 18"/></svg>
+    </button>
+  </div>
+  <div class="sheet__body">
+    <p>Настоящий Договор является публичной офертой (ст. 437 ГК РФ) и описывает условия оказания услуг по установке натяжных потолков студией SkyLine (далее — Исполнитель).</p>
+
+    <h3>1. Предмет договора</h3>
+    <p>Исполнитель обязуется выполнить работы по замеру, доставке и монтажу натяжных потолков из полотен MSD, Pongs, Descor или Clipso. Заказчик обязуется принять работу и оплатить её в порядке, установленном настоящим Договором.</p>
+
+    <h3>2. Порядок расчёта и оплаты</h3>
+    <ul>
+      <li><strong>Предоплата — 0 ₽.</strong> Оплата производится после приёмки работ по акту.</li>
+      <li>Смета фиксируется в договоре и не может быть изменена в одностороннем порядке.</li>
+      <li>Доплаты за «обход угла» или «вставку под трубу» — отсутствуют. Все дополнительные работы включаются в смету до её подписания.</li>
+      <li>Приёмка работы производится подписанием акта приёмки-передачи.</li>
+    </ul>
+
+    <h3>3. Сроки выполнения</h3>
+    <p>Стандартный монтаж комнаты 18 м² — 4 часа. Дата фиксируется в договоре. <strong>Просрочка — пени 1 % от суммы договора за каждый день просрочки</strong>, до 10 % (пункт 8.3). За 12 лет работы пени срабатывала трижды.</p>
+
+    <h3>4. Гарантия</h3>
+    <ul>
+      <li>15 лет — на полотно (заводская гарантия MSD, Pongs, Descor).</li>
+      <li>5 лет — на монтаж (гарантия студии SkyLine).</li>
+      <li>Гарантия покрывает провисание, разрыв шва, отслоение багета, выцветание.</li>
+      <li>Не покрывает механические повреждения и затопление агрессивными жидкостями.</li>
+      <li>Обращение по гарантии — выезд в течение 5 рабочих дней, бесплатно.</li>
+    </ul>
+
+    <h3>5. Условия возврата</h3>
+    <p>До начала монтажа Заказчик вправе отказаться от договора с возвратом 100 % внесённой суммы. После начала монтажа — возврат пропорционально невыполненным работам.</p>
+
+    <h3>6. Форс-мажор</h3>
+    <p>Стороны освобождаются от ответственности за неисполнение обязательств, если оно явилось следствием обстоятельств непреодолимой силы (пожар, наводнение, отключение электричества в районе на 4+ часа).</p>
+
+    <h3>7. Претензии</h3>
+    <p>Претензии по качеству принимаются в течение гарантийного срока по телефону +7 919 144-28-23 или e-mail <a href="mailto:info@skyline-bashkortostan.ru">info@skyline-bashkortostan.ru</a>. Срок ответа — 5 рабочих дней.</p>
+
+    <p class="meta">Версия 2.0 · Действует с 1 января 2026 · ИНН 0266012345 · ОГРНИП 322028000012345</p>
+  </div>
+</aside>
+
+<!-- ═══ SCROLL-TO-TOP ═══ -->
+<button class="scroll-top" id="scroll-top" aria-label="Наверх" data-show="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19 V5 M6 11 L12 5 L18 11"/></svg>
+</button>
