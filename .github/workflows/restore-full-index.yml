@@ -1,0 +1,57 @@
+name: Restore full index with placeholders
+
+on:
+  workflow_dispatch:
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Restore full original index.html with only placeholders
+        run: |
+          git show c2ecaccf08d86a3133814c9d1083a3f4749fe144:index.html > index.html
+          python3 << 'PY'
+          reps = [
+            ("SkyLine", "[Название компании]"),
+            ("Skyline", "[Название компании]"),
+            ("skyline-bashkortostan.ru", "example.ru"),
+            ("skyline-bashkortostan", "example"),
+            ("skyline-theme", "company-theme"),
+            ("+79191442823", "+7XXXXXXXXXX"),
+            ("8-919-144-28-23", "8-XXX-XXX-XX-XX"),
+            ("+7 919 144-28-23", "+7 XXX XXX-XX-XX"),
+            ("79191442823", "7XXXXXXXXXX"),
+            ("info@skyline-bashkortostan.ru", "info@example.ru"),
+            ("wa.me/79191442823", "wa.me/7XXXXXXXXXX"),
+          ]
+          c = open("index.html", encoding="utf-8").read()
+          for a, b in reps:
+              c = c.replace(a, b)
+          if "Сайт разработан веб-студией" not in c:
+              c = c.replace(
+                  "</footer>",
+                  '''  <div class="footer__dev" style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(128,128,128,.25);font-size:.85rem;opacity:.85;text-align:center">
+    Сайт разработан веб-студией <strong>BASH-Site</strong> (г. Уфа)
+  </div>
+</footer>''',
+                  1,
+              )
+          open("index.html", "w", encoding="utf-8").write(c)
+          open("download/index.html", "w", encoding="utf-8").write(c)
+          print("OK size", len(c), "SkyLine", c.count("SkyLine"), "BASH-Site", c.count("BASH-Site"))
+          PY
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html download/index.html
+          git diff --staged --quiet && echo "No changes" && exit 0
+          git commit -m "Restore full original design; only company name and phone as placeholders; BASH-Site as developer credit"
+          git push
