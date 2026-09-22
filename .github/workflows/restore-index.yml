@@ -14,42 +14,47 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Restore index without black-text override
+      - name: Restore full original index with placeholders only
         run: |
           set -e
-          git show f035a80834e9af4e27b9fcb400baf5d243949a95:index.html > index.html
+          git show c2ecaccf08d86a3133814c9d1083a3f4749fe144:index.html > index.html
           python3 << 'PY'
           from pathlib import Path
-          text = Path('index.html').read_text(encoding='utf-8')
-          text = text.replace('class="sub reveal"">', 'class="sub reveal">')
-
-          old_reveal = '''/* === Stagger reveal — «выскакивает снизу» === */\n.reveal{\n  opacity:0;\n  transform:translateY(60px) scale(0.98);\n  transition:opacity .9s cubic-bezier(0.16,1,0.3,1), transform .9s cubic-bezier(0.16,1,0.3,1);\n  will-change:opacity,transform\n}\n.reveal.in-view{opacity:1;transform:none}\n.reveal[style*="--i"]{transition-delay:calc(var(--i) * 100ms)}'''
-          new_reveal = '''/* === Stagger reveal — light theme fix === */\n.reveal{\n  opacity:1;\n  transform:translateY(28px);\n  transition:opacity .7s cubic-bezier(0.16,1,0.3,1), transform .7s cubic-bezier(0.16,1,0.3,1);\n  will-change:opacity,transform\n}\n.reveal.in-view{opacity:1;transform:none}\n.reveal[style*="--i"]{transition-delay:calc(var(--i) * 80ms)}'''
-          if old_reveal not in text:
-              raise SystemExit('reveal block missing')
-          text = text.replace(old_reveal, new_reveal, 1)
-
-          old_io = """    var io = new IntersectionObserver(function(entries){\n      entries.forEach(function(en){\n        if (en.isIntersecting) {\n          en.target.classList.add('in-view');\n          io.unobserve(en.target);\n        }\n      });\n    }, { root: null, rootMargin: '0px 0px -15% 0px', threshold: 0.15 });\n    items.forEach(function(el){ io.observe(el); });\n  } catch(err) { console.error('Reveal IO:', err); }\n})();"""
-          new_io = """    var io = new IntersectionObserver(function(entries){\n      entries.forEach(function(en){\n        if (en.isIntersecting) {\n          en.target.classList.add('in-view');\n          io.unobserve(en.target);\n        }\n      });\n    }, { root: null, rootMargin: '0px 0px 0px 0px', threshold: 0.05 });\n    items.forEach(function(el){ io.observe(el); });\n    setTimeout(function(){\n      items.forEach(function(el){ el.classList.add('in-view'); });\n    }, 1200);\n  } catch(err) { console.error('Reveal IO:', err); }\n})();"""
-          if old_io not in text:
-              raise SystemExit('io block missing')
-          text = text.replace(old_io, new_io, 1)
-
-          old_mobile = '''@media(max-width:640px){\n  :root{--header-h:80px}\n  nav.menu{max-height:0;overflow:hidden;transition:max-height .35s ease;padding:0;background:transparent}\n  nav.menu.open{max-height:520px;background:var(--white);box-shadow:0 8px 24px rgba(15,27,61,.12)}\n  [data-theme="dark"] nav.menu.open{background:var(--light);box-shadow:0 8px 24px rgba(0,0,0,.4)}\n  nav.menu ul{flex-direction:column;align-items:center;padding:10px 20px}\n  .burger{display:block}\n  .header-phone{font-size:15px}\n  .about-grid,.benefits-grid,.steps{grid-template-columns:1fr}\n  .btn{width:100%}\n  h2{font-size:26px}\n  .footer-grid{grid-template-columns:1fr}\n  .modal-box{padding:25px 20px}\n  .socials{order:3;width:100%;justify-content:flex-start}\n  .scroll-top{right:14px;bottom:18px;width:44px;height:44px}\n}'''
-          new_mobile = '''@media(max-width:640px){\n  :root{--header-h:80px}\n  html,body{overflow-x:hidden;max-width:100vw}\n  .container{padding:0 12px;max-width:100%}\n  .header-row{flex-wrap:nowrap;gap:8px;padding:10px 0}\n  .logo{font-size:18px;gap:6px;min-width:0;flex-shrink:1}\n  .logo-mark{width:32px;height:32px;font-size:16px;flex-shrink:0}\n  .header-right{display:flex;align-items:center;gap:6px;flex-shrink:0;min-width:0}\n  .socials{display:flex;gap:6px;order:0;width:auto;justify-content:flex-start;flex-shrink:0}\n  .socials a{width:34px;height:34px;border-radius:8px}\n  .socials svg{width:17px;height:17px}\n  .theme-toggle{width:34px;height:34px;flex-shrink:0}\n  .header-phone{font-size:13px;gap:4px;max-width:42vw;overflow:hidden}\n  .header-phone-text{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}\n  .header-phone svg{width:16px;height:16px;flex-shrink:0}\n  nav.menu{max-height:0;overflow:hidden;transition:max-height .35s ease;padding:0;background:transparent}\n  nav.menu.open{max-height:520px;background:var(--white);box-shadow:0 8px 24px rgba(15,27,61,.12)}\n  [data-theme="dark"] nav.menu.open{background:var(--light);box-shadow:0 8px 24px rgba(0,0,0,.4)}\n  nav.menu ul{flex-direction:column;align-items:center;padding:10px 20px}\n  .burger{display:block;flex-shrink:0;padding:4px 6px}\n  .about-grid,.benefits-grid,.steps{grid-template-columns:1fr}\n  .btn{width:100%}\n  h2{font-size:26px}\n  .footer-grid{grid-template-columns:1fr}\n  .modal-box{padding:25px 20px}\n  .scroll-top{right:14px;bottom:18px;width:44px;height:44px}\n}\n@media(max-width:380px){\n  .header-phone-text{display:none}\n  .socials a{width:32px;height:32px}\n  .logo{font-size:16px}\n}'''
-          if old_mobile not in text:
-              raise SystemExit('mobile block missing')
-          text = text.replace(old_mobile, new_mobile, 1)
-
-          Path('index.html').write_text(text, encoding='utf-8')
-          print('reverted black text, kept mobile+reveal fixes', len(text))
+          reps = [
+            ("SkyLine", "[Название компании]"),
+            ("Skyline", "[Название компании]"),
+            ("skyline-bashkortostan.ru", "example.ru"),
+            ("skyline-bashkortostan", "example"),
+            ("skyline-theme", "company-theme"),
+            ("+79191442823", "+7XXXXXXXXXX"),
+            ("8-919-144-28-23", "8-XXX-XXX-XX-XX"),
+            ("+7 919 144-28-23", "+7 XXX XXX-XX-XX"),
+            ("79191442823", "7XXXXXXXXXX"),
+            ("info@skyline-bashkortostan.ru", "info@example.ru"),
+            ("wa.me/79191442823", "wa.me/7XXXXXXXXXX"),
+          ]
+          c = Path("index.html").read_text(encoding="utf-8")
+          for a, b in reps:
+              c = c.replace(a, b)
+          if "Сайт разработан веб-студией" not in c:
+              c = c.replace(
+                  "</footer>",
+                  """  <div class=\"footer__dev\" style=\"margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(128,128,128,.25);font-size:.85rem;opacity:.85;text-align:center\">
+    Сайт разработан веб-студией <strong>BASH-Site</strong> (г. Уфа)
+  </div>
+</footer>""",
+                  1,
+              )
+          Path("index.html").write_text(c, encoding="utf-8")
+          Path("download/index.html").write_text(c, encoding="utf-8")
+          print("OK size", len(c), "SkyLine", c.count("SkyLine"), "BASH-Site", c.count("BASH-Site"))
           PY
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          git diff --cached --quiet && echo 'No changes' && exit 0
-          git commit -m "revert: remove black text override, keep mobile and reveal fixes"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html download/index.html
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "Restore full original design; only company name and phone as placeholders; BASH-Site as developer credit"
           git push
