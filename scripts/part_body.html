@@ -1,18 +1,16 @@
 <!-- ═══ Skip-link ═══ -->
 <a href="#main" class="skip-link">Перейти к содержанию</a>
 
-<!-- ═══ Header 56px ═══ -->
+<!-- ═══ Header ═══ -->
 <header class="header" id="header" data-hidden="false">
   <div class="header__inner container">
-    <a href="#main" class="logo" aria-label="BASH-Site — на главную">
+    <a href="#main" class="logo" aria-label="[Название компании] — на главную">
       <span class="logo__mark" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M3 6 H21 M3 6 V20 H21 V6 M3 8 Q12 11 21 8"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6 H21 M3 6 V20 H21 V6 M3 8 Q12 11 21 8"/></svg>
       </span>
-      <span>BASH-Site</span>
+      <span>[Название компании]</span>
     </a>
-    <nav class="header__nav" aria-label="Главное меню (десктоп)" style="display:none">
+    <nav class="header__nav" aria-label="Главное меню" style="display:none">
       <a href="#prices" class="header__nav-link">Цены</a>
       <a href="#calc" class="header__nav-link">Калькулятор</a>
       <a href="#portfolio" class="header__nav-link">Работы</a>
@@ -21,75 +19,80 @@
       <a href="#contacts" class="header__nav-link">Контакты</a>
     </nav>
     <a href="tel:+7XXXXXXXXXX" class="header__phone" aria-label="Позвонить +7 XXX XXX-XX-XX" style="display:none">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4 H8 L10 9 L8 11 Q9.5 14 13 15.5 L15 13.5 L20 16 V19 Q20 21 18 21 Q11 21 7 17 Q3 13 3 6 Q3 4 5 4 Z"/></svg>
       <span>+7 XXX XXX-XX-XX</span>
     </a>
     <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu">
-      <span class="burger__line"></span>
-      <span class="burger__line"></span>
-      <span class="burger__line"></span>
+      <span class="burger__line"></span><span class="burger__line"></span><span class="burger__line"></span>
     </button>
   </div>
 </header>
 
-<!-- ═══ Burger menu overlay ═══ -->
 <div class="menu-backdrop" id="menu-backdrop" data-open="false" hidden></div>
-<aside class="menu" id="menu" data-open="false" aria-hidden="true" aria-label="Меню навигации">
-  <nav class="menu__nav" aria-label="Разделы сайта">
-    <a href="#prices" class="menu__link" data-menu-close><span>Цены</span><span class="menu__link-num">01</span></a>
-    <a href="#calc" class="menu__link" data-menu-close><span>Калькулятор</span><span class="menu__link-num">02</span></a>
-    <a href="#portfolio" class="menu__link" data-menu-close><span>Работы</span><span class="menu__link-num">03</span></a>
-    <a href="#services" class="menu__link" data-menu-close><span>Услуги</span><span class="menu__link-num">04</span></a>
-    <a href="#reviews" class="menu__link" data-menu-close><span>Отзывы</span><span class="menu__link-num">05</span></a>
-    <a href="#about" class="menu__link" data-menu-close><span>О студии</span><span class="menu__link-num">06</span></a>
-    <a href="#faq" class="menu__link" data-menu-close><span>Вопросы</span><span class="menu__link-num">07</span></a>
-    <a href="#contacts" class="menu__link" data-menu-close><span>Контакты</span><span class="menu__link-num">08</span></a>
+<aside class="menu" id="menu" data-open="false" aria-hidden="true" aria-label="Меню">
+  <nav class="menu__nav">
+    <a href="#prices" class="menu__link" data-menu-close><span>Цены</span></a>
+    <a href="#calc" class="menu__link" data-menu-close><span>Калькулятор</span></a>
+    <a href="#portfolio" class="menu__link" data-menu-close><span>Работы</span></a>
+    <a href="#services" class="menu__link" data-menu-close><span>Услуги</span></a>
+    <a href="#reviews" class="menu__link" data-menu-close><span>Отзывы</span></a>
+    <a href="#faq" class="menu__link" data-menu-close><span>Вопросы</span></a>
+    <a href="#contacts" class="menu__link" data-menu-close><span>Контакты</span></a>
   </nav>
   <div class="menu__contact">
     <a href="tel:+7XXXXXXXXXX" class="menu__phone">+7 XXX XXX-XX-XX</a>
-    <p class="menu__hours">Ежедневно 08:00–20:00<br>Отвечает монтажник, не менеджер</p>
-  </div>
-  <div class="menu__theme">
-    <span class="menu__theme-label">Тёмная тема</span>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему" aria-pressed="false">
-      <span class="theme-toggle__dot" aria-hidden="true"></span>
-    </button>
+    <p class="menu__hours">Ежедневно 08:00–20:00</p>
   </div>
 </aside>
 
-<!-- ═══ Sticky bottom-bar ═══ -->
 <nav class="bottom-bar" id="bottom-bar" data-hidden="false" aria-label="Быстрые действия">
-  <a href="tel:+7XXXXXXXXXX" class="bottom-bar__btn bottom-bar__btn--call" aria-label="Позвонить">
-    <span>Позвонить</span>
-  </a>
-  <a href="https://wa.me/7XXXXXXXXXX" class="bottom-bar__btn bottom-bar__btn--wa" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
-    <span>WhatsApp</span>
-  </a>
-  <a href="#calc" class="bottom-bar__btn bottom-bar__btn--calc" data-bottom-bar-hide aria-label="Рассчитать стоимость">
-    <span>Рассчитать</span>
-  </a>
+  <a href="tel:+7XXXXXXXXXX" class="bottom-bar__btn bottom-bar__btn--call" aria-label="Позвонить"><span>Позвонить</span></a>
+  <a href="https://wa.me/7XXXXXXXXXX" class="bottom-bar__btn bottom-bar__btn--wa" target="_blank" rel="noopener" aria-label="WhatsApp"><span>WhatsApp</span></a>
+  <a href="#calc" class="bottom-bar__btn bottom-bar__btn--calc" aria-label="Рассчитать"><span>Рассчитать</span></a>
 </nav>
 
 <main id="main">
-  <!-- HERO and other sections remain, reviews and footer updated below -->
-  <!-- Reviews section: SkyLine replaced with BASH-Site -->
-  <section id="reviews" class="section">
-    <div class="container">
-      <h2>Отзывы клиентов</h2>
-      <blockquote class="review__text">Жили в Иглино, искала потолок в детскую 14 м². Боялась предоплаты — у нас в районе три знакомых так попали на 8 тысяч. BASH-Site не брали ни копейки до окончания. Привезли образцы полотна 12×12 см, выбрали матовый ivory MSD. За 4 часа смонтировали, мусор вынесли. Через год звонили — спросили, не провисло ли.</blockquote>
-      <blockquote class="review__text">Делал потолок в Уфе, 32 м² кухня-гостиная. Сначала хотел сетевую компанию — там менеджер приехал, наговорил «замер бесплатный», а в смете 14 скрытых доплат. BASH-Site прислали замерщика, он же монтажник — позвонил, объяснил 11 позиций, ничего лишнего. Цена 73 200 ₽, не изменилась. Полотно Pongs Diamant сатин.</blockquote>
-      <blockquote class="review__text">У нас ребёнок-аллергик, искали полотно без запаха. BASH-Site предложили сатиновый Pongs с сертификатом М1, показали документ. Монтаж делали при нас, тепловая пушка Bosch электрическая. Запаха не было вообще, ребёнок зашёл через час.</blockquote>
-      <blockquote class="review__text">Я дизайнер интерьеров, работаю с подрядчиками по потолкам 8 лет. BASH-Site — впервые сделали по моему дизайн-проекту без правок. Двухуровневый с фотопечатью «облака» 16 м², парящий контур в гостиной 28 м².</blockquote>
-      <blockquote class="review__text">Кафе 90 м², пожарный инспектор требовал группу Г1. BASH-Site предложили полотно MSD с сертификатом МЧС, приложили копии к договору — инспектор вопросов не задал.</blockquote>
+  <section class="hero section" id="home">
+    <div class="hero__container container">
+      <div class="hero__text">
+        <span class="hero__eyebrow eyebrow">Студия натяжных потолков · [Город]</span>
+        <h1 class="hero__title">Натяжные потолки в&nbsp;[Город]<br>— без <em>халтуры</em> и&nbsp;спешки</h1>
+        <p class="hero__lead">Полотна MSD, Pongs, Descor. Монтаж за 4 часа на 18 м², оплата после приёмки.</p>
+        <div class="hero__cta">
+          <a href="#calc" class="btn-primary"><span>Рассчитать стоимость</span></a>
+          <a href="#portfolio" class="btn-tertiary"><span>Смотреть работы</span></a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
+  <section id="reviews" class="section">
     <div class="container">
-      <div class="footer__logo">BASH-Site</div>
-      <p class="footer__copy">© 2013–2027 BASH-Site. ИНН 0266012345 · ОГРНИП 322028000012345. Республика Башкортостан, с. Иглино, ул. Советская, 4. Тел. +7 XXX XXX-XX-XX. Не является публичной офертой. Полотна MSD, Pongs, Descor — оригинальная продукция заводов-поставщиков.</p>
-      <p>По вопросам: <a href="mailto:info@bash-site.ru">info@bash-site.ru</a>, телефон <a href="tel:+7XXXXXXXXXX">+7 XXX XXX-XX-XX</a>.</p>
+      <h2>Отзывы клиентов</h2>
+      <blockquote class="review__text">Жили в [Город], искала потолок в детскую. Боялась предоплаты. [Компания] не брали ни копейки до окончания. Привезли образцы, выбрали матовый MSD. За 4 часа смонтировали, мусор вынесли.</blockquote>
+      <blockquote class="review__text">Делал потолок в [Город], 32 м². [Компания] прислали замерщика, он же монтажник — объяснил всё, ничего лишнего. Цена не изменилась.</blockquote>
+      <blockquote class="review__text">У нас ребёнок-аллергик. [Компания] предложили сатиновый Pongs с сертификатом М1. Запаха не было.</blockquote>
+      <blockquote class="review__text">Я дизайнер. [Компания] — впервые сделали по моему дизайн-проекту без правок.</blockquote>
+      <blockquote class="review__text">Кафе 90 м², пожарный требовал Г1. [Компания] предложили полотно с сертификатом МЧС.</blockquote>
     </div>
-  </footer>
+  </section>
+
+  <section id="contacts" class="section">
+    <div class="container">
+      <h2>Контакты</h2>
+      <p>Телефон: <a href="tel:+7XXXXXXXXXX">+7 XXX XXX-XX-XX</a></p>
+      <p>Email: <a href="mailto:info@example.ru">info@example.ru</a></p>
+      <p>Адрес: [Адрес компании]</p>
+    </div>
+  </section>
 </main>
+
+<footer class="footer" id="footer">
+  <div class="footer__inner container">
+    <div class="footer__logo">[Название компании]</div>
+    <p class="footer__desc">Натяжные потолки в [Город / Регион]. Полотна MSD, Pongs, Descor. [Краткое описание — заглушка].</p>
+    <p class="footer__copy">© 2013–2027 [Название компании]. ИНН [ИНН] · ОГРНИП [ОГРНИП]. [Адрес]. Тел. +7 XXX XXX-XX-XX. Не является публичной офертой.</p>
+    <div class="footer__dev" style="margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(128,128,128,.25);font-size:.85rem;opacity:.85;text-align:center">
+      Сайт разработан веб-студией <strong>BASH-Site</strong> (г. Уфа)
+    </div>
+  </div>
+</footer>
