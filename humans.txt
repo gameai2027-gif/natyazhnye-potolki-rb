@@ -1,23 +1,12 @@
-# SkyLine — команда проекта
+/* TEAM */
+Developer: BASH-Site web studio
+Location: Ufa, Republic of Bashkortostan
+Site: https://bash-site.ru
 
-## Веб-студия BASH-Site
-Город: Уфа, Республика Башкортостан
-Сайт: https://bash-site.ru (заглушка)
+/* THANKS */
+Google Fonts, schema.org, MDN, OWASP, Let's Encrypt, Cloudflare
 
-## Роли
-- Project Manager: BASH-Site
-- UX/UI Design: BASH-Site
-- Frontend Development: BASH-Site
-- SEO: BASH-Site
-- Security Audit: BASH-Site
-
-## Технологии
-- HTML5, CSS3 (Custom Properties)
-- Vanilla JavaScript (ES6+)
-- Google Fonts (Inter, Manrope)
-- schema.org JSON-LD
-
-## Благодарности
-- Google Fonts
-- schema.org
-- Яндекс.Карты
+/* SITE */
+Last update: 2026
+Standards: HTML5, CSS3, ES6+
+Components: Glassmorphism, multi-step calculator, theme toggle, JSON-LD, CSP strict

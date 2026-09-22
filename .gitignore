@@ -1,153 +1,52 @@
-# ============================================================================
-# .gitignore — SkyLine 2026
-# Стандартный для веб-проекта + специфика backend
-# ============================================================================
+# Dependencies and build
+node_modules/
+dist/
+build/
+.cache/
+*.log
 
-# --- ОС ---
+# Environment and secrets
+.env
+.env.*
+!.env.example
+config.php
+*.pem
+*.key
+
+# OS and editors
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
-Desktop.ini
-$RECYCLE.BIN/
-
-# --- Редакторы и IDE ---
-.vscode/
-.idea/
 *.swp
 *.swo
 *~
-.project
-.settings/
-*.sublime-project
-*.sublime-workspace
-nbproject/
+.idea/
+.vscode/
+*.sublime-*
 
-# --- Node.js / npm ---
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-.npm
-.yarn-integrity
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
+# Preview and temp
+preview.png
+og-image.jpg
+*.tmp
+*.bak
 
-# --- PHP / Composer ---
+# Local server / PHP
+*.local
 vendor/
 composer.lock
-composer.phar
 
-# --- Логи ---
+# GitHub Pages / Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Security / logs (never commit real logs)
+security/logs/
 *.log
-logs/
-log/
 access.log
 error.log
-php-errors.log
 
-# --- Backend runtime (ДАННЫЕ ЗАЯВОК — НИКОГДА В GIT!) ---
-/security/api/lead-data/
-/security/api/lead-data/*
-/lead-data/
-/lead-data/**
-*.sqlite
-*.db
-*.sqlite3
-
-# --- Секреты / конфиги с паролями ---
-.env
-.env.*
-.env.local
-.env.production
-.env.staging
-config.php
-config.local.php
-secrets.json
-*.pem
-*.key
-*.crt
-*.p12
-*.pfx
-!letsencrypt-staging.pem
-
-# --- Бэкапы и черновики ---
-/_backups/
-/_backups/**
-/_drafts/
-/_drafts/**
-*.bak
-*.backup
-*.old
-*.orig
-
-# --- Кэш / временные ---
-.cache/
-.tmp/
-tmp/
-*.tmp
-*.temp
-
-# --- Билд-артефакты (если будут) ---
-/dist/
-/build/
-*.min.js
-*.min.css
-!vendor/**/*.min.js
-!vendor/**/*.min.css
-
-# --- Тесты / покрытие ---
-/coverage/
-.nyc_output/
-coverage.xml
-junit.xml
-
-# --- OS hidden ---
-[Tt]humbs.db
-ehthumbs.db
-
-# --- macOS metadata ---
-.AppleDouble
-.LSOverride
-
-# --- Windows shortcuts ---
-*.lnk
-
-# --- PhpStorm / IntelliJ cache ---
-.idea_modules/
-
-# --- VS Code workspace settings ---
-*.code-workspace
-.history/
-
-# --- Dep ---
-.dep/
-
-# --- Тестовые данные ---
-/seed/
-/seeds/
-
-# --- Coverage / PHPUnit ---
-.phpunit.result.cache
-.phpunit.cache/
-
-# --- Symfony / Laravel (на будущее) ---
-/.phpunit.cache/
-/var/
-/var/cache/
-/var/log/
-
-# --- Сгенерированные sitemap / robots (если генерируются) ---
-# sitemap.xml — оставить, он статичный
-# robots.txt — оставить, он статичный
-
-# --- Скриншоты для README (не пушим в git, чтобы не раздувать репо) ---
-preview.png
-preview.jpg
-og-image.jpg
-og-image.png
+# Backup
+*.sql
+*.dump
+backups/

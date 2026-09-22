@@ -1,5 +1,4 @@
-Contact: mailto:security@skyline-bashkortostan.ru
-Contact: https://t.me/skyline_security
-Expires: 2027-09-12T00:00:00.000Z
+Contact: https://t.me/bash_site_security
+Expires: 2027-12-31T23:59:59.000Z
 Preferred-Languages: ru, en
-Canonical: https://skyline-bashkortostan.ru/.well-known/security.txt
+Canonical: https://bash-site.ru/.well-known/security.txt

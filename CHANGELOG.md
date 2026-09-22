@@ -1,125 +1,19 @@
-# Changelog — SkyLine
+# Changelog
 
-Все заметные изменения проекта SkyLine задокументированы в этом файле.
+All notable changes to this project will be documented in this file.
 
-Формат основан на [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/),
-версионирование — [Semantic Versioning](https://semver.org/lang/ru/).
-
-Технический changelog (по коммитам) — в [`docs/CHANGELOG.md`](docs/CHANGELOG.md).
-
----
-
-## [Unreleased]
-
-### Planned
-- PWA: Service Worker, offline-кэш, install prompt
-- A/B-тесты для hero CTA
-- Интеграция с Яндекс.Директ (цели в Метрике)
-- Личный кабинет клиента (история заявок, фото до/после)
-- Версия для слабовидящих (высокий контраст, крупный шрифт)
-
----
-
-## [3.0.0] — 2026-09-12
-
-### Added
-- Финальная сборка 2026 года — production-ready лендинг
-- **Glassmorphism hero** — полупрозрачная карточка с `backdrop-filter: blur()`
-- **Многошаговый калькулятор** — 5 шагов с авто-переходами и валидацией
-- **Theme toggle** — светлая/тёмная тема с сохранением в `localStorage`
-- **Scroll-to-top** — плавная кнопка наверх на `IntersectionObserver`
-- **Ripple-эффект** — материальная анимация нажатий на кнопках
-- **JSON-LD** — `LocalBusiness`, `Service`, `FAQPage`, `Review`, `BreadcrumbList`
-- **CSP strict** — nonce-based, без `unsafe-inline`
-- **WCAG 2.1 AA** — семантика, ARIA, фокус-стили, контраст
-- **Service Worker ready** — заготовка под PWA
-- **Manifest.json** — Web App Manifest для установки на главный экран
-- **Favicon SVG** — векторная иконка с темной/светлой темой
-- **Humans.txt** — команда проекта
-
-### Security
-- CSRF-защита с session-based токеном и TTL 30 мин
-- Honeypot + timestamp анти-спам (3 сек минимум)
-- Rate-limiting: 3 запроса / 10 минут / IP
-- Шифрование ПДн at-rest (AES-256-GCM, libsodium)
-- Псевдонимизация IP в логах (SHA-256 + salt)
-- Журнал доступа к ПДн по 152-ФЗ ст. 19
+## [3.0.0] - 2026-09
 
 ### Changed
-- Структура: header → hero с навигацией поверх → контент → footer
-- Телефон кликабелен на всех устройствах, на мобильных — компактная кнопка
-- Калькулятор: авто-переходы после выбора помещения и полотна
-- CSS-псевдоэлементы для подсказок «Далее», «Нажмите Отправить заявку»
-
-### Removed
-- Устаревшие секции из v2.x
-- Все эмодзи из контента (правило проекта)
-
----
-
-## [2.5.0] — 2026-09-12
+- Full rebrand from SkyLine to BASH-Site
+- Updated all domains, configs, documentation and source files
+- Renamed nginx-skyline.conf → nginx-bash-site.conf
 
 ### Added
-- **Geo-SEO фокус на Иглинский район** — отдельные блоки про Иглино, Уфу, районы Башкортостана
-- **JSON-LD Service** — структурированные данные об услуге
-- Расширенный `LocalBusiness` с `areaServed` (РБ, Уфа, Иглино, районы)
-- `openingHoursSpecification` — часы работы в JSON-LD
-- `priceRange` — диапазон цен в JSON-LD
-- Карточка с адресом в `<footer>` и microdata `PostalAddress`
-- Карта Я.Карты в контактах (iframe с CSP-разрешением)
+- Glassmorphism hero, multi-step calculator, theme toggle
+- Strict CSP (nonce-based), WCAG 2.1 AA, JSON-LD
+- 152-FZ compliance, anti-spam, Telegram notifications
 
-### Changed
-- HERO H1: «Натяжные потолки в Иглино и Уфе — монтаж за 2 дня от SkyLine»
-- Подзаголовок: конкретика по гео, цене, срокам, гарантии
-- Trust-бейджи: 12 лет, 3500+ объектов, оплата после монтажа
-- Добавлен блок «География работы» с 10+ населёнными пунктами РБ
+## [2.x] - 2026
 
----
-
-## [2.0.0] — 2026-09-12
-
-### Added
-- **Мультиагентная сборка** — контент от 4 агентов (контент-стратег, копирайтер, SEO, UX)
-- **10 услуг** — отдельные карточки: гладкие, матовые, сатиновые, тканевые, парящие, двухуровневые, фотопечать, подсветка, потолок с шумоизоляцией, перегородки
-- **8 кейсов** — портфолио с фото до/после, площадью, сроком, ценой
-- **5 отзывов** — клиенты из Иглино, Уфы, Красноусольска, Стерлитамака
-- **8 FAQ** — частые вопросы с JSON-LD `FAQPage`
-- Секция «О компании» с 4 карточками статистики
-- Секция «Сертификаты и гарантии»
-
----
-
-## [1.5.0] — 2026-09-12
-
-### Added
-- **Многошаговый калькулятор стоимости** — 5 шагов:
-  1. Помещение (квартира / дом / офис)
-  2. Площадь (слайдер 10-200 м² с метками)
-  3. Тип полотна (MSD / Pongs / Descor / Clipso)
-  4. Опции (подсветка, фотопечать, шумоизоляция, парящие)
-  5. Контактная форма с валидацией
-- Расчёт цены в реальном времени с учётом опций
-- Прогресс-бар между шагами
-- Валидация полей на лету
-
----
-
-## [1.0.0] — 2026-09-12
-
-### Added
-- Базовый лендинг с HERO секцией
-- Контактная форма (имя, телефон, сообщение)
-- Ссылка на политику обработки ПД (152-ФЗ)
-- Согласие на обработку персональных данных
-- Адаптивная вёрстка (мобильная + десктоп)
-- Бургер-меню для мобильных
-- Контактный телефон в шапке
-
----
-
-[Unreleased]: https://github.com/BASH-Site/skyline-bashkortostan/compare/v3.0.0...HEAD
-[3.0.0]: https://github.com/BASH-Site/skyline-bashkortostan/compare/v2.5.0...v3.0.0
-[2.5.0]: https://github.com/BASH-Site/skyline-bashkortostan/compare/v2.0.0...v2.5.0
-[2.0.0]: https://github.com/BASH-Site/skyline-bashkortostan/compare/v1.5.0...v2.0.0
-[1.5.0]: https://github.com/BASH-Site/skyline-bashkortostan/compare/v1.0.0...v1.5.0
-[1.0.0]: https://github.com/BASH-Site/skyline-bashkortostan/releases/tag/v1.0.0
+Initial production-ready landing for stretch ceilings in Bashkortostan.
