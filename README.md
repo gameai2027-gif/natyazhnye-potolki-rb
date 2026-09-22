@@ -1,4 +1,4 @@
-# SkyLine — Натяжные потолки в Иглино и Уфе
+# BASH-Site — Натяжные потолки в Иглино и Уфе
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
@@ -7,14 +7,14 @@
 ![Security](https://img.shields.io/badge/Security-A%2B-brightgreen)
 ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 
-> Лендинг компании SkyLine — натяжные потолки в Республике Башкортостан
+> Лендинг компании BASH-Site — натяжные потолки в Республике Башкортостан
 > (с. Иглино, г. Уфа и районы республики). Создан веб-студией **BASH-Site**, г. Уфа.
 
 ---
 
 ## Скриншот
 
-![Превью лендинга SkyLine](preview.png)
+![Превью лендинга BASH-Site](preview.png)
 
 > Файл `preview.png` не входит в репозиторий по умолчанию. Положите сюда
 > снимок главной страницы (1280x800 или 1920x1080) перед публикацией.
@@ -59,7 +59,7 @@
 ## Структура проекта
 
 ```
-skyline-bashkortostan/
+bash-site/
 ├── README.md                      # Этот файл
 ├── LICENSE                        # MIT License
 ├── .gitignore                     # Исключения для git
@@ -86,7 +86,7 @@ skyline-bashkortostan/
 ├── /security/                     # Security-пакет (серверная часть)
 │   ├── README.md                  # Описание содержимого
 │   ├── /config/                   # Конфиги сервера
-│   │   ├── nginx-skyline.conf     # nginx site config
+│   │   ├── nginx-bash-site.conf   # nginx site config
 │   │   ├── .htaccess              # Apache config
 │   │   ├── csp-strict.txt         # CSP strict (prod)
 │   │   └── csp-soft.txt           # CSP soft (dev/staging)
@@ -95,7 +95,7 @@ skyline-bashkortostan/
 │   └── /well-known/               # .well-known файлы
 │       ├── robots.txt             # Расширенный robots для прод-сервера
 │       └── security.txt           # RFC 9116 security contact
-└── /scripts/                      # Вспомогательные скрипты (пусто, reserved)
+└── /scripts/                      # Вспомогательные скрипты
 ```
 
 ---
@@ -111,8 +111,8 @@ skyline-bashkortostan/
 
 ```bash
 # Клонировать репозиторий
-git clone https://github.com/BASH-Site/skyline-bashkortostan.git
-cd skyline-bashkortostan
+git clone https://github.com/gameai2027-gif/natyazhnye-potolki-rb.git
+cd natyazhnye-potolki-rb
 
 # Вариант 1: Python (проще всего)
 python3 -m http.server 8080
@@ -157,9 +157,9 @@ CSP, rate-limiting и журналом доступа к ПДн (152-ФЗ).
 ### Контакты и реквизиты
 
 - [ ] `ИНН` / `ОГРНИП` / `ОГРН` — в JSON-LD `LocalBusiness` и в `<footer>`
-- [ ] `skyline-bashkortostan.ru` — домен во всех файлах (CNAME, robots.txt, sitemap.xml, manifest.json, JSON-LD, security.txt, nginx.conf, .htaccess)
+- [ ] `bash-site.ru` — домен во всех файлах (CNAME, robots.txt, sitemap.xml, manifest.json, JSON-LD, security.txt, nginx.conf, .htaccess)
 - [ ] `8-919-144-28-23` — телефон в `tel:` ссылках и JSON-LD (если меняется)
-- [ ] E-mail `info@skyline-bashkortostan.ru` — в контактах и security.txt
+- [ ] E-mail `info@bash-site.ru` — в контактах и security.txt
 - [ ] Адрес: `РБ, с. Иглино, ул. Советская, 4` — проверить в JSON-LD и `<address>`
 - [ ] Часы работы — в JSON-LD `openingHoursSpecification`
 
@@ -238,7 +238,7 @@ CSP, rate-limiting и журналом доступа к ПДн (152-ФЗ).
 - **Валидация и санитизация** — `strip_tags` + `htmlspecialchars` + whitelist для `room`
 - **152-ФЗ compliance** — чекбокс согласия, журнал доступа, шифрование ПДн at-rest (AES-256-GCM), псевдонимизация IP в логах, срок хранения 3 года
 - **SSL/TLS 1.3 / 1.2** — без legacy-протоколов, OCSP stapling, HSTS preload
-- **Изоляция PHP** — выполнение только в `/api/`, запрет прямого доступа к `.php` вне `/api/`
+- **Изоляция PHP** — PHP только в `/api/`, запрет прямого доступа к `.php` вне `/api/`
 - **Запрет скрытых файлов** — `.git`, `.env`, `.htaccess` недоступны извне
 
 ---
@@ -259,10 +259,10 @@ Copyright (c) 2026 BASH-Site, веб-студия, г. Уфа.
 - E-mail: hello@bash-site.ru (заглушка)
 - Telegram: @bash_site (заглушка)
 
-**Заказчик: SkyLine**
+**Компания: BASH-Site**
 - Адрес: РБ, с. Иглино, ул. Советская, 4
 - Телефон: 8-919-144-28-23
-- E-mail: info@skyline-bashkortostan.ru (заглушка)
+- E-mail: info@bash-site.ru (заглушка)
 
 ---
 
@@ -278,5 +278,5 @@ Copyright (c) 2026 BASH-Site, веб-студия, г. Уфа.
 
 ---
 
-> Проект подготовлен веб-студией **BASH-Site** (г. Уфа) для компании SkyLine.
+> Проект подготовлен веб-студией **BASH-Site** (г. Уфа).
 > Версия: 3.0.0 (2026). Лицензия: MIT.
