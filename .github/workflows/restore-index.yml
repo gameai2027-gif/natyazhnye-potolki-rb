@@ -3,12 +3,14 @@ name: Restore fixed index
 on:
   workflow_dispatch:
   push:
-    paths:
-      - '.github/trigger-restore'
-      - '.github/workflows/restore-index.yml'
+    branches: [main]
 
 permissions:
   contents: write
+
+concurrency:
+  group: restore-index
+  cancel-in-progress: true
 
 jobs:
   restore:
@@ -22,30 +24,33 @@ jobs:
         run: |
           set -euo pipefail
           git show c2ecaccf08d86a3133814c9d1083a3f4749fe144:index.html > index.html
-          python3 -c "
+          python3 -c '
 from pathlib import Path
 reps = [
-  ('SkyLine', '[Название компании]'),
-  ('Skyline', '[Название компании]'),
-  ('skyline-bashkortostan.ru', 'example.ru'),
-  ('skyline-bashkortostan', 'example'),
-  ('skyline-theme', 'company-theme'),
-  ('+79191442823', '+7XXXXXXXXXX'),
-  ('8-919-144-28-23', '8-XXX-XXX-XX-XX'),
-  ('+7 919 144-28-23', '+7 XXX XXX-XX-XX'),
-  ('79191442823', '7XXXXXXXXXX'),
-  ('info@skyline-bashkortostan.ru', 'info@example.ru'),
-  ('wa.me/79191442823', 'wa.me/7XXXXXXXXXX'),
+  ("SkyLine", "[Название компании]"),
+  ("Skyline", "[Название компании]"),
+  ("skyline-bashkortostan.ru", "example.ru"),
+  ("skyline-bashkortostan", "example"),
+  ("skyline-theme", "company-theme"),
+  ("+79191442823", "+7XXXXXXXXXX"),
+  ("8-919-144-28-23", "8-XXX-XXX-XX-XX"),
+  ("+7 919 144-28-23", "+7 XXX XXX-XX-XX"),
+  ("79191442823", "7XXXXXXXXXX"),
+  ("info@skyline-bashkortostan.ru", "info@example.ru"),
+  ("wa.me/79191442823", "wa.me/7XXXXXXXXXX"),
 ]
-c = Path('index.html').read_text(encoding='utf-8')
+c = Path("index.html").read_text(encoding="utf-8")
 for a, b in reps:
     c = c.replace(a, b)
-if 'Сайт разработан веб-студией' not in c:
-    c = c.replace('</footer>', '''  <div class=\"footer__dev\" style=\"margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(128,128,128,.25);font-size:.85rem;opacity:.85;text-align:center\">\n    Сайт разработан веб-студией <strong>BASH-Site</strong> (г. Уфа)\n  </div>\n</footer>''', 1)
-Path('index.html').write_text(c, encoding='utf-8')
-Path('download/index.html').write_text(c, encoding='utf-8')
-print('OK', len(c), 'SkyLine', c.count('SkyLine'), 'BASH-Site', c.count('BASH-Site'))
-"
+if "Сайт разработан веб-студией" not in c:
+    c = c.replace("</footer>", """  <div class=\"footer__dev\" style=\"margin-top:1.5rem;padding-top:1rem;border-top:1px solid rgba(128,128,128,.25);font-size:.85rem;opacity:.85;text-align:center\">
+    Сайт разработан веб-студией <strong>BASH-Site</strong> (г. Уфа)
+  </div>
+</footer>""", 1)
+Path("index.html").write_text(c, encoding="utf-8")
+Path("download/index.html").write_text(c, encoding="utf-8")
+print("OK", len(c), "SkyLine", c.count("SkyLine"), "BASH-Site", c.count("BASH-Site"))
+'
 
       - name: Commit and push
         run: |
